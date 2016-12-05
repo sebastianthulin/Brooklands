@@ -1,0 +1,310 @@
+
+&:not(.home) .hero {
+    max-height: 80vh;
+    .modularity-mod-slider {
+        max-height: inherit;
+        .slider {
+            max-height: inherit;
+        }
+    }
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: $palette-2;
+    background-size: cover;
+    height: auto;
+    min-height: 350px;
+    max-height: 95vh;
+    height: auto;
+
+    .has-text-block .slider-image:before,
+    .has-text-block .slider-video:before {
+        @include cover();
+        content: "";
+        background: rgba(0, 0, 0, 0.15);
+        z-index: 10;
+
+        /* Mobile */
+        @media screen and #{$screen-below-sm} {
+            background: rgba(0, 0, 0, 0.4);
+        }
+    }
+
+    .modularity-mod-slider {
+        padding-top: 56.25%;
+        position: relative;
+        .slider {
+            @include cover();
+        }
+    }
+
+    &.sidebar-slider-area time {
+        font-family: $condensed-font-family;
+        padding: 7px 12px;
+        border: 2px solid #fff;
+        background: rgba(#fff,.75);
+        color: #000;
+        text-shadow: none;
+        font-size: .5em;
+        margin-top: 25px;
+        display: inline-block;
+        font-weight: 600;
+
+        div {
+            display: inline;
+            font-weight: 800;
+        }
+    }
+
+    .slider {
+        background-color: $palette-3;
+        max-height: 95vh;
+
+        .player a {
+            z-index: 10 !important;
+            text-shadow: 0 0 9px rgba(0,0,0,.3);
+        }
+
+        [class*=slider-nav-] {
+            background: none;
+            border-radius: 50%;
+            overflow: hidden;
+            padding: 0;
+            z-index: 20;
+            font-size: 2.5em;
+
+            @media screen and #{$screen-below-sm} {
+                border: none;
+                width: 30px;
+                font-size: 1.5em;
+                line-height: 1.5em;
+                background: none;
+                text-shadow: 0 0 1px rgba(#000,.3);
+            }
+
+            i {
+                transition: 200ms margin;
+            }
+
+        }
+
+        .slider-nav-previous {
+            margin-left: 25px;
+
+            @media screen and #{$screen-below-sm} {
+                margin-left: 5px;
+            }
+
+            i {
+                margin-left: 3px;
+            }
+        }
+
+        .slider-nav-next {
+            margin-right: 25px;
+
+            @media screen and #{$screen-below-sm} {
+                margin-right: 5px;
+            }
+
+            i {
+                margin-right: 3px;
+            }
+        }
+
+        .slider-nav-previous:hover {
+           i {
+                margin-left: 0;
+            }
+        }
+
+        .slider-nav-next:hover {
+            i {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .search {
+        @include center();
+        width: 30%;
+        min-width: 300px;
+        z-index: 20;
+
+        label {
+            display: inline-block;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        input[type="search"] {
+            border: none;
+        }
+    }
+
+    .text-block {
+
+        @include center();
+        font-family: $base-font-family;
+        text-transform: uppercase;
+        text-align: center;
+        right: auto;
+        bottom: auto;
+        letter-spacing: .01em;
+        font-size: 2em;
+        color: #fff;
+        width: 90%;
+        max-width: 90%;
+        z-index: 30;
+        background-color: transparent;
+        text-shadow: 0 0 6px rgba(0, 0, 0, 0.28);
+        animation: fadeinUpHeroText 1s;
+
+        /* Smaller font on first-row */
+        span {
+            font-size: 3.5vw;
+            font-weight: 800;
+            max-width: 90%;
+        }
+
+        .title {
+            font-family: $condensed-font-family;
+            font-size: .9em;
+            font-weight: 800;
+        }
+
+        time {
+            font-size: .6em;
+            font-weight: normal;
+        }
+
+        /* Mobile */
+        @media screen and #{$screen-below-sm} {
+            font-weight: bold;
+
+            span {
+                max-width: 90%;
+                font-size: 5vw;
+            }
+        }
+
+        @media screen and #{$screen-below-md} {
+            span {
+                max-width: 80%;
+            }
+        }
+    }
+
+    .stripe {
+        display: none !important;
+    }
+
+    .scroll-down-please {
+        @include center(true, false);
+        z-index: 99;
+        bottom: 20px;
+        font-size: 1em;
+        padding: 10px 20px;
+        line-height: 1;
+        color: rgba(#fff, .8);
+        text-transform: uppercase;
+        font-family: $base-font-family;
+        white-space: nowrap;
+        letter-spacing: .1em;
+
+        @media screen and #{$screen-below-sm} {
+            font-size: .8em;
+        }
+    }
+
+    .scroll-down-please-icon {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: .5em;
+        position: relative;
+        margin-left: .4em;
+        color: rgba(#fff, .8);
+        font-size: 1em;
+        z-index: 9999;
+        animation: 1500ms scroll-down-please infinite ease-in-out;
+
+        &::after {
+            @include hbg-icon($icon-arrow-double-down);
+            @include center();
+        }
+    }
+}
+
+@keyframes scroll-down-please {
+    0% {
+        top: -4px;
+    }
+
+    50% {
+        top: 1px;
+    }
+
+    100% {
+        top: -4px;
+    }
+}
+
+.slider-next .slider-in {
+    animation: slider-next-in 1s ease-in-out;
+    z-index: 9;
+}
+
+.slider-next .slider-out {
+    display: block !important;
+    z-index: 8;
+    animation: slider-next-out 1s ease-in-out forwards;
+}
+
+.slider-previous .slider-in {
+    animation: slider-previous-in 1s ease-in-out;
+    z-index: 9;
+}
+
+.slider-previous .slider-out {
+    display: block !important;
+    z-index: 8;
+    animation: slider-previous-out 1s ease-in-out forwards;
+}
+
+@keyframes slider-next-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slider-next-out {
+    from {
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes slider-previous-in {
+    from {
+        opacity: 0;
+    }
+    to {
+    }
+}
+
+@keyframes slider-previous-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+

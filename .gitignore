@@ -14,6 +14,9 @@ wp-content/*
 !wp-content/mu-plugins
 !wp-content/mu-plugins/*
 !wp-content/object-cache.php
+!wp-content/themes
+!wp-content/themes/brooklands/
+wp-content/themes/brooklands/node_modules
 composer.lock
 
 

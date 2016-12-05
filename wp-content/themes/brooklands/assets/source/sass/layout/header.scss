@@ -1,0 +1,224 @@
+.header-gutter {
+    padding-top: 80px;
+}
+
+#site-header {
+    position: fixed;
+    z-index: 200;
+    width: 100%;
+    padding-top: 0;
+    top: 0px;
+    left: 0;
+    transition: all 200ms;
+    background-color: rgba(0, 0, 0, 0.25);
+    animation: fadein 2s;
+
+    nav.navbar {
+        background-color: transparent;
+        transition: padding 200ms;
+        padding: 15px 0;
+    }
+
+    nav.navbar [data-tooltip] {
+
+        &:after {
+            border-radius: 0px;
+            padding: 7px 10px;
+            background-color: #fff;
+            color: $black;
+            text-transform: uppercase;
+            opacity: .9;
+            transition: all 100ms;
+        }
+
+        &:before {
+            border-bottom-color: #fff;
+            opacity: .9;
+            transition: all 100ms;
+            bottom: -8px;
+        }
+
+        @media screen and (max-width: #{$screen-md-max}) {
+            &:after,
+            &:before {
+                display: none;
+            }
+        }
+    }
+
+    .menu-trigger {
+        display: table-cell;
+        width: 1%;
+        vertical-align: middle;
+    }
+
+    .logotype {
+        transition: opacity 300ms;
+        z-index: 800;
+        margin-right: 20px;
+        display: table-cell;
+        vertical-align: middle;
+
+        @media screen and (min-width: #{$screen-lg-max}) {
+            float: left;
+        }
+
+        svg, img {
+            transition: height 200ms, background 300ms;
+            height: 60px;
+            width: 60px;
+            max-width: none;
+        }
+
+        svg path,
+        svg use,
+        svg circle,
+        svg glyph,
+        svg text {
+            fill: #fff;
+            transition: fill 300ms;
+        }
+
+        &:after, &:before {
+            opacity: 0;
+            transition: 200ms opacity;
+        }
+
+        &:hover svg {
+            background-color: $palette-3;
+        }
+
+        @media #{$screen-below-sm} {
+            padding-right: 20px;
+
+            img, svg {
+                height: 9vw;
+                width: 9vw;
+            }
+        }
+
+        @media screen and (max-width: #{$screen-lg-max}) and (min-width: #{$screen-lg-min}) {
+            margin: 5px auto;
+            display: inline-block !important;
+        }
+    }
+
+}
+
+#site-header.liquid-header,
+&.menu-open #site-header,
+&.no-js #site-header {
+    background-color: rgba($palette-2,.97);
+    box-shadow: 0 0 4px rgba($black, .7);
+
+    .logotype {
+        @media screen and (min-width: #{$screen-md-min}) {
+            svg, img {
+                height: 50px;
+                width: 50px;
+                max-width: none;
+            }
+        }
+
+        svg path,
+        svg use,
+        svg circle,
+        svg glyph,
+        svg text {
+            fill: $black !important;
+        }
+    }
+
+    nav.navbar [data-tooltip] {
+        &:after {
+            background-color: rgba(#000,.7);
+            color: #fff;
+        }
+
+        &:before {
+            border-bottom-color: rgba(#000,.7);
+            opacity: 1;
+            bottom: -8px;
+        }
+    }
+
+    nav.navbar svg.hbg-icon {
+        opacity: 1;
+        fill: $black;
+    }
+
+    nav.navbar {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    #main-menu {
+        @media screen and (min-width: #{$screen-lg-max}) {
+            margin-top: 27px;
+        }
+
+        @media screen and (max-width: #{$screen-lg-max}) {
+            margin-top: 10px;
+        }
+
+        li {
+
+            a {
+                color: $black;
+                line-height: 1;
+
+                &:before {
+                    background-color: $black;
+                    bottom: 0;
+                }
+            }
+
+            &.current-menu-item {
+                a {
+                    color: $black;
+                    border-color: $black;
+
+                    &::before {
+                        visibility: visible;
+                        transform: scaleX(1);
+                    }
+                }
+            }
+        }
+    }
+
+    #mobile-menu,
+    a[href="#mobile-menu"] {
+        &:not(.open) .menu-icon,
+        .menu-icon:after,
+        .menu-icon:before {
+            background-color: #000;
+        }
+    }
+
+    #header-tabs {
+        height: 0;
+        opacity: 0;
+    }
+}
+
+.in-english a::before {
+    @include pricon('\EA7E');
+    margin-right: 3px;
+    font-size: 1.3em;
+}
+
+.easy-read a::before {
+    @include pricon('\EA7D');
+    margin-right: 3px;
+}
+
+.sign-language a::before {
+    @include pricon('\EA7C');
+    margin-right: 3px;
+}
+
+a[href="#translate"]::before {
+    @include pricon('\EA39');
+    margin-right: 4px;
+}
