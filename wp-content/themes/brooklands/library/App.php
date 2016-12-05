@@ -9,5 +9,6 @@ class App
         new \Brooklands\Theme\DisableComments();
         new \Brooklands\Theme\Filters();
         new \Brooklands\Theme\Sidebar();
+        new \Brooklands\Theme\ModularityBrooklands();
     }
 }
