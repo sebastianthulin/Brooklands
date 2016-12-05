@@ -20,5 +20,11 @@
 @import 'animation/bouncein';
 
 .is-child-theme {
+
+    /* Layout */
 	@import 'layout/header';
+    @import 'layout/footer';
+
+    /* Component */
+    @import 'component/hero';
 }
