@@ -22,9 +22,11 @@
 .is-child-theme {
 
     /* Layout */
+    @import 'layout/base';
 	@import 'layout/header';
     @import 'layout/footer';
 
     /* Component */
     @import 'component/hero';
+    @import 'component/flex';
 }

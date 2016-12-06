@@ -53,15 +53,6 @@ class Filters
             return '<time class="open-hours-label button opaque">' . $input . '</time>';
         }, 10, 2);
 
-        // Make posts compatible with flickity
-        add_filter('acf/load_value/name=posts_columns', function ($value, $post_id, $field) {
-            if (!is_admin()) {
-                return 'grid-xs-12 grid-sm-6 '.$value;
-            }
-
-            return $value;
-        }, 10, 3);
-
         // Titles
         add_filter('the_title', array($this, 'theTitle'), 1);
         add_filter('wp_title', array($this, 'wpTitle'), 1);

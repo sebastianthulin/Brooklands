@@ -124,6 +124,9 @@
 .is-child-theme {
   /* Layout */
   /* Component */ }
+  .is-child-theme h1, .is-child-theme h2, .is-child-theme h3, .is-child-theme h4, .is-child-theme h5, .is-child-theme h6 {
+    color: #111820;
+    text-transform: uppercase; }
   .is-child-theme .header-gutter {
     padding-top: 80px; }
   .is-child-theme #site-header {
@@ -627,3 +630,76 @@
     opacity: 1; }
   to {
     opacity: 0; } }
+  .is-child-theme .flexible-container {
+    padding: 120px 10px; }
+    .is-child-theme .flexible-container:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      z-index: 5;
+      background: url("https://unsplash.it/1400/1000?image=1071");
+      background-size: cover;
+      background-position: center; }
+    .is-child-theme .flexible-container .modularity-edit-module {
+      z-index: 15; }
+    .is-child-theme .flexible-container.img-left:after {
+      right: calc(50%); }
+    .is-child-theme .flexible-container.img-left .grid {
+      -webkit-box-pack: end;
+          -ms-flex-pack: end;
+              justify-content: flex-end; }
+    .is-child-theme .flexible-container.img-right:after {
+      left: calc(50%); }
+    .is-child-theme .flexible-container.img-right .grid {
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start; }
+    .is-child-theme .flexible-container.overlay {
+      color: #fff; }
+      .is-child-theme .flexible-container.overlay:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: "";
+        background: rgba(17, 24, 32, 0.7);
+        z-index: 7; }
+      .is-child-theme .flexible-container.overlay.text-position-left .grid {
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: flex-start; }
+      .is-child-theme .flexible-container.overlay.text-position-right .grid {
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end; }
+      .is-child-theme .flexible-container.overlay.text-position-center .grid {
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        text-align: center; }
+      .is-child-theme .flexible-container.overlay .btn {
+        border-color: #fff;
+        color: #fff; }
+    .is-child-theme .flexible-container.img-focus-left:after {
+      background-position: center left; }
+    .is-child-theme .flexible-container.img-focus-right:after {
+      background-position: center right; }
+    .is-child-theme .flexible-container > .container {
+      position: relative;
+      z-index: 10; }
+    .is-child-theme .flexible-container p + .btn {
+      margin-top: 15px; }
+    .is-child-theme .flexible-container .btn {
+      color: #111820;
+      display: block;
+      background: none;
+      border: 2px solid #111820;
+      text-align: center;
+      font-size: 1.05em;
+      text-transform: uppercase; }
+  .is-child-theme .flex-section + .flex-section {
+    margin-top: 0; }
