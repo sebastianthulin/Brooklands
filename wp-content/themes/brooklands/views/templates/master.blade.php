@@ -71,10 +71,6 @@
 
         @include('partials.header')
 
-        @if (is_active_sidebar('brooklands-header'))
-            {{ dynamic_sidebar('brooklands-header') }}
-        @endif
-
         <main id="main-content" class="clearfix">
             @yield('content')
 

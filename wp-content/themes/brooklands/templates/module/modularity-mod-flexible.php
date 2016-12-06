@@ -2,7 +2,7 @@
     <div class="container">
         <div class="grid">
             <div class="grid-xs-12 grid-md-5">
-                <h3>Euismod Bibendum</h3>
+                <h2>Euismod Bibendum</h2>
                 <p>Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui.</p>
                 <a href="" class="btn">Läs mer</a>
             </div>
@@ -14,7 +14,7 @@
     <div class="container">
         <div class="grid">
             <div class="grid-xs-12 grid-md-5">
-                <h3>Euismod Bibendum</h3>
+                <h2>Euismod Bibendum</h2>
                 <p>Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui.</p>
                 <a href="" class="btn">Läs mer</a>
             </div>
@@ -26,7 +26,7 @@
     <div class="container">
         <div class="grid">
             <div class="grid-xs-12 grid-md-5">
-                <h3>Euismod Bibendum</h3>
+                <h2>Euismod Bibendum</h2>
                 <p>Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui.</p>
                 <a href="" class="btn">Läs mer</a>
             </div>
@@ -39,7 +39,7 @@
     <div class="container">
         <div class="grid">
             <div class="grid-xs-12 grid-md-5">
-                <h3>Euismod Bibendum</h3>
+                <h2>Euismod Bibendum</h2>
                 <p>Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui.</p>
                 <a href="" class="btn">Läs mer</a>
             </div>
@@ -51,7 +51,7 @@
     <div class="container">
         <div class="grid">
             <div class="grid-xs-12 grid-md-5">
-                <h3>Euismod Bibendum</h3>
+                <h2>Euismod Bibendum</h2>
                 <p>Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui.</p>
                 <a href="" class="btn">Läs mer</a>
             </div>

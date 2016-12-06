@@ -64,6 +64,10 @@ $flex-padding: 60px;
         .btn {
             border-color: $white;
             color: $white;
+
+            &:hover {
+                background-color: rgba($white,.2);
+            }
         }
     }
 
@@ -92,6 +96,13 @@ $flex-padding: 60px;
         text-align: center;
         font-size: 1.05em;
         text-transform: uppercase;
+        transition: all 150ms;
+        border-radius: 1px;
+
+        &:hover {
+            background: $brooklands-blue;
+            color: $white;
+        }
     }
 
 }

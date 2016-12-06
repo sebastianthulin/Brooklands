@@ -125,7 +125,7 @@
   /* Layout */
   /* Component */ }
   .is-child-theme h1, .is-child-theme h2, .is-child-theme h3, .is-child-theme h4, .is-child-theme h5, .is-child-theme h6 {
-    color: #111820;
+    font-weight: 600;
     text-transform: uppercase; }
   .is-child-theme .header-gutter {
     padding-top: 80px; }
@@ -414,7 +414,6 @@
         text-shadow: 0 0 9px rgba(0, 0, 0, 0.3); }
       .is-child-theme .hero .slider [class*=slider-nav-] {
         background: none;
-        border-radius: 50%;
         overflow: hidden;
         padding: 0;
         z-index: 20;
@@ -684,6 +683,8 @@
       .is-child-theme .flexible-container.overlay .btn {
         border-color: #fff;
         color: #fff; }
+        .is-child-theme .flexible-container.overlay .btn:hover {
+          background-color: rgba(255, 255, 255, 0.2); }
     .is-child-theme .flexible-container.img-focus-left:after {
       background-position: center left; }
     .is-child-theme .flexible-container.img-focus-right:after {
@@ -700,6 +701,12 @@
       border: 2px solid #111820;
       text-align: center;
       font-size: 1.05em;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      -webkit-transition: all 150ms;
+              transition: all 150ms;
+      border-radius: 1px; }
+      .is-child-theme .flexible-container .btn:hover {
+        background: #111820;
+        color: #fff; }
   .is-child-theme .flex-section + .flex-section {
     margin-top: 0; }
