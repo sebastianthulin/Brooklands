@@ -7,7 +7,7 @@ nav#mobile-menu {
     }
 
     ul {
-        background-color: rgba(darken($brooklands-blue,10%),.9);
+        background-color: rgba($brooklands-blue,.9);
         min-height: 100vh;
 
         li {
@@ -29,9 +29,9 @@ nav#mobile-menu {
 
             &.active,
             &.current-menu-item {
-                background: rgba(#fff,.1);
+                background: rgba(#fff,.05);
                 a {
-                    background: darken($brooklands-blue,5%);
+                    background: transparent;
                 }
             }
         }

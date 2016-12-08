@@ -33,7 +33,7 @@
     <div class="container">
         <div class="grid">
 
-            <div class="grid-xs-12 grid-md-5">
+            <div class="grid-xs-12 grid-md-7 grid-lg-5">
                 <?php
                     if (!$module->hideTitle) {
                         echo '<h2>' . $module->post_title . '</h2>';
