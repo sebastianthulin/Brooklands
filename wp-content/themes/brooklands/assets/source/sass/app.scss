@@ -14,6 +14,7 @@
 @import 'mixin/gradient';
 @import 'mixin/typeface';
 @import 'mixin/rounded';
+@import 'mixin/blur';
 
 /* Animations */
 @import 'animation/fadein';
@@ -25,6 +26,10 @@
     @import 'layout/base';
 	@import 'layout/header';
     @import 'layout/footer';
+
+    /* Menus */
+    @import 'layout/mainmenu';
+    @import 'layout/mobilemenu';
 
     /* Component */
     @import 'component/hero';

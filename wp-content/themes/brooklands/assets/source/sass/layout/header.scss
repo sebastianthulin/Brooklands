@@ -45,51 +45,9 @@
         }
     }
 
-    #main-menu {
-        font-size: 0.95em;
-
-        li {
-            text-transform: uppercase;
-
-            a {
-                color: $white;
-                line-height: 1;
-
-                &:before {
-                    background-color: $white;
-                    bottom: 0;
-                }
-
-            }
-
-            &.current-menu-item {
-                a {
-                    color: $white;
-                    border-color: $white;
-
-                    &::before {
-                        visibility: visible;
-                        transform: scaleX(1);
-                    }
-
-                    &::after {
-                        display: none;
-                    }
-                }
-            }
-        }
-    }
-
-    .menu-trigger {
-        display: table-cell;
-        width: 1%;
-        vertical-align: middle;
-    }
-
     .logotype {
         transition: opacity 300ms;
         z-index: 800;
-        margin-right: 20px;
         display: table-cell;
         vertical-align: middle;
 
@@ -99,8 +57,8 @@
 
         svg, img {
             transition: height 200ms, background 300ms;
-            height: 60px;
-            width: 140px;
+            height: 50px;
+            width: auto;
             max-width: none;
         }
 
@@ -119,18 +77,12 @@
         }
 
         @media #{$screen-below-sm} {
-            padding-right: 20px;
-
+            width: 50%;
             img, svg {
-                height: 9vw;
-                width: 9vw;
+                height: 40px;
             }
         }
 
-        @media screen and (max-width: #{$screen-lg-max}) and (min-width: #{$screen-lg-min}) {
-            margin: 5px auto;
-            display: inline-block !important;
-        }
     }
 
 }
@@ -138,17 +90,8 @@
 #site-header.liquid-header,
 &.menu-open #site-header,
 &.no-js #site-header {
+    @include backdrop-blur();
     background-color: rgba($brooklands-blue,.7);
-
-    .logotype {
-        @media screen and (min-width: #{$screen-md-min}) {
-            svg, img {
-                height: 50px;
-                width: 117px;
-                max-width: none;
-            }
-        }
-    }
 
     nav.navbar [data-tooltip] {
         &:after {
@@ -163,18 +106,15 @@
         }
     }
 
-    nav.navbar svg.hbg-icon {
-        opacity: 1;
-        fill: $white;
-    }
-
     nav.navbar {
         padding-top: 5px;
         padding-bottom: 5px;
     }
 
-    #header-tabs {
-        height: 0;
-        opacity: 0;
+    @media screen and (max-width: #{$screen-md-max}) {
+        nav.navbar {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
     }
 }

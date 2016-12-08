@@ -2,15 +2,45 @@
 $flex-padding: 60px;
 
 .flexible-container {
-    padding: $flex-padding*2 10px;
 
-    &:after {
-        @include cover();
-        content: "";
-        z-index: 5;
-        background: url('https://unsplash.it/1400/1000?image=1071');
-        background-size: cover;
-        background-position: center;
+    position: relative;
+
+    @media screen and #{$screen-md-up} {
+
+        padding: $flex-padding*2 0;
+
+        &:after,
+        .section-image {
+            @include cover();
+            content: "";
+            z-index: 5;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+
+    @media screen and #{$screen-below-md} {
+
+        padding: $flex-padding/2 0;
+
+        .section-image-mobile {
+            background-size: cover;
+            margin-bottom: $flex-padding/2;
+        }
+
+        &.overlay .section-image {
+            @include cover();
+            content: "";
+            z-index: 5;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+
+    .section-image {
+        z-index: 7;
     }
 
     .modularity-edit-module {
@@ -18,7 +48,8 @@ $flex-padding: 60px;
     }
 
     &.img-left {
-        &:after {
+        &:after,
+        .section-image {
             right: calc(50%);
         }
 
@@ -29,7 +60,8 @@ $flex-padding: 60px;
 
     &.img-right {
 
-        &:after {
+        &:after,
+        .section-image {
             left: calc(50%);
         }
 
@@ -43,9 +75,10 @@ $flex-padding: 60px;
 
         &:before {
             @include cover();
+            @include backdrop-blur();
             content: "";
             background: rgba($brooklands-blue, .7);
-            z-index: 7;
+            z-index: 8;
         }
 
         &.text-position-left .grid {
@@ -71,11 +104,18 @@ $flex-padding: 60px;
         }
     }
 
-    &.img-focus-left:after {
+    &.img-focus-center:after,
+    &.img-focus-center .section-image {
+        background-position: center;
+    }
+
+    &.img-focus-left:after,
+    &.img-focus-left .section-image {
         background-position: center left;
     }
 
-    &.img-focus-right:after {
+    &.img-focus-right:after,
+    &.img-focus-right .section-image  {
         background-position: center right;
     }
 
@@ -84,11 +124,14 @@ $flex-padding: 60px;
         z-index: 10;
     }
 
-    p + .btn {
+    p + .btn,
+    p .btn {
         margin-top: 15px;
     }
 
-    .btn {
+    .btn,
+    .btn-lg,
+    .btn-md {
         color: $brooklands-blue;
         display: block;
         background: none;
@@ -98,6 +141,7 @@ $flex-padding: 60px;
         text-transform: uppercase;
         transition: all 150ms;
         border-radius: 1px;
+        padding: .9em;
 
         &:hover {
             background: $brooklands-blue;
