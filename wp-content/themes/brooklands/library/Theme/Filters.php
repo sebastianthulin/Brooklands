@@ -173,7 +173,7 @@ class Filters
      */
     public function mobileMenuBreakpoint($classes)
     {
-        return "hidden-lg";
+        return "";
     }
 
     /**
