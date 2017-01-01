@@ -182,7 +182,7 @@ class Filters
      */
     public function desktopMenuBreakpoint($classes)
     {
-        return "hidden-xs hidden-sm hidden-md";
+        return "hidden";
     }
 
     /**
