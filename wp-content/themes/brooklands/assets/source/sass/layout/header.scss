@@ -1,7 +1,3 @@
-.header-gutter {
-    padding-top: 80px;
-}
-
 #site-header {
     position: fixed;
     z-index: 200;
@@ -88,34 +84,10 @@
 
 }
 
-#site-header.liquid-header,
-&.menu-open #site-header,
-&.no-js #site-header {
-    @include backdrop-blur();
-    background-color: rgba($brooklands-blue,.7);
+&.home #site-header {
+    position: absolute;
+}
 
-    nav.navbar [data-tooltip] {
-        &:after {
-            background-color: rgba($white,.7);
-            color: #fff;
-        }
-
-        &:before {
-            border-bottom-color: rgba($white,.7);
-            opacity: 1;
-            bottom: -8px;
-        }
-    }
-
-    nav.navbar {
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
-
-    @media screen and (max-width: #{$screen-md-max}) {
-        nav.navbar {
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-    }
+&:not(.home) #site-header {
+    background: $white;
 }

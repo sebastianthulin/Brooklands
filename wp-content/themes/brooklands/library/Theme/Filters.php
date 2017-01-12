@@ -29,9 +29,6 @@ class Filters
         }, 10, 3);
         */
 
-        // Search
-        add_filter('Municipio/search_result/date', array($this, 'eventDate'), 10, 2);
-
         //Remove base-theme filters
         add_action('init', array($this, 'unregisterMunicipioImageFilter'));
 
@@ -48,14 +45,10 @@ class Filters
                 return "";
             }
             if (!$isException) {
-                $input = '<div>' . __("Open today: ", 'fredriksdal') . ' </div>' . $input;
+                $input = '<span>' . __("Open today: ", 'brooklands') . ' </span>' . $input;
             }
-            return '<time class="open-hours-label button opaque">' . $input . '</time>';
+            return '<time class="open-hours-label">' . $input . '</time>';
         }, 10, 2);
-
-        // Titles
-        add_filter('the_title', array($this, 'theTitle'), 1);
-        add_filter('wp_title', array($this, 'wpTitle'), 1);
 
         // Sidebar WpWidget module
         add_filter('Modularity/Module/WpWidget/before', array($this, 'wpWidgetBefore'), 11, 3);
@@ -129,35 +122,6 @@ class Filters
         return $before;
     }
 
-    public function wpTitle($title)
-    {
-        return str_replace(array('{', '}', '&#8211;', '-'), '', $title);
-    }
-
-    public function theTitle($title)
-    {
-        if (!in_the_loop()) {
-            $title = str_replace(array('{', '}', '-'), '', $title);
-            return $title;
-        }
-
-        $title = preg_replace('/(.*)?[-](.*)?/', '<strong>$1</strong> $2', $title);
-        $title = preg_replace('/{(.*)?}/', '<strong>$1</strong>', $title);
-
-        return trim($title);
-    }
-
-    public function eventDate($date, $post)
-    {
-        if ($post->post_type != 'event') {
-            return $date;
-        }
-
-        $date = date('Y-m-d \k\l\. H:i', strtotime(get_field('event-date-start', $post->ID)));
-
-        return $date;
-    }
-
     /**
      * Unregister built in image sizes. Use modularity
      * @return void
@@ -191,7 +155,7 @@ class Filters
      */
     public function headerGridSize($classes)
     {
-        return "grid-lg-12";
+        return "grid-xs-12";
     }
 
     public function imageAspectRatioSquare($size, $args)

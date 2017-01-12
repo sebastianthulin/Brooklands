@@ -4,18 +4,9 @@
         <div class="grid">
             <div class="grid-xs-12 {!! apply_filters('Municipio/header_grid_size','grid-md-12'); !!}">
                 <div class="grid">
-                    <div class="grid-sm-12 grid-md-2">
+                    <div class="grid-sm-12">
                         {!! municipio_get_logotype(get_field('header_logotype', 'option'), get_field('logotype_tooltip', 'option')) !!}
-                        <a href="#mobile-menu" data-target="#mobile-menu" class="{!! apply_filters('Municipio/mobile_menu_breakpoint','hidden-md hidden-lg'); !!} menu-trigger"><span class="menu-icon"></span></a>
-                    </div>
-                    <div class="grid-md-10 text-right {!! apply_filters('Municipio/desktop_menu_breakpoint','hidden-xs hidden-sm'); !!}">
-                        <nav class="nav-group-overflow" data-btn-width="100">
-                            {!! $navigation['mainMenu'] !!}
-                            <span class="dropdown">
-                                <span class="btn btn-primary dropdown-toggle hidden"><?php _e('More', 'municipio'); ?></span>
-                                <ul class="dropdown-menu nav-grouped-overflow hidden"></ul>
-                            </span>
-                        </nav>
+                        <a href="#mobile-menu" data-target="#mobile-menu" class="{!! apply_filters('Municipio/mobile_menu_breakpoint','hidden-md hidden-lg'); !!} menu-trigger"><span class="menu-icon"></span> <?php _e("Menu",'brooklands'); ?></a>
                     </div>
                 </div>
             </div>
