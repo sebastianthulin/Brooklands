@@ -1,18 +1,20 @@
 nav#mobile-menu {
     @include backdrop-blur();
     animation: fadein 500ms;
+    padding: $grid-gutter-md 0 $grid-gutter-lg 0;
 
     form {
         display: none;
     }
 
     ul {
-        background-color: rgba($brooklands-blue,.9);
-        min-height: 100vh;
+        background-color: transparent;
+        animation: fadein 500ms;
+        //animation-delay: 500ms;
 
         li {
             & + li {
-                border-top: 1px solid rgba(#fff,.1);
+                border-top: 1px solid rgba($black,.1);
             }
 
             a {
@@ -21,19 +23,31 @@ nav#mobile-menu {
                 font-size: 1.2em;
                 font-weight: 300;
                 transition: background 200ms;
-
-                &:hover {
-                    background: darken($brooklands-blue,5%);
-                }
+                color: $black;
             }
 
             &.active,
             &.current-menu-item {
-                background: rgba(#fff,.05);
+                background: rgba($white,.05);
                 a {
                     background: transparent;
                 }
             }
+        }
+    }
+}
+
+.menu-trigger {
+    text-transform: uppercase;
+    margin-top: 70px;
+
+    .menu-icon {
+        height: 2px;
+        margin-left: 20px;
+
+        &:after,
+        &:before {
+            height: 2px;
         }
     }
 }
@@ -53,3 +67,4 @@ nav#mobile-menu {
         }
     }
 }
+
