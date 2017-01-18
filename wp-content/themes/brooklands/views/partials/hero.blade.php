@@ -10,10 +10,6 @@
         {{ get_search_form() }}
     @endif
 
-    <a href="#main-content" class="scroll-down-please">
-        <div class="scroll-down-please-icon"></div>
-        {{ __("Scroll down", 'fredriksdal') }}
-    </a>
 </div>
 @else
 <?php
@@ -22,8 +18,8 @@
     if (is_single() || is_page()) {
         $featuredImage = wp_get_attachment_image_src(
             get_post_thumbnail_id(),
-            apply_filters('fredriksdal/page_hero',
-                municipio_to_aspect_ratio('16:9', array(1140, 641))
+            apply_filters('brooklands/page_hero',
+                municipio_to_aspect_ratio('10:3', array(1800, 540))
             )
         );
     }
@@ -31,7 +27,7 @@
 
 @if (is_array($featuredImage))
 <div class="hero hero-featured-image">
-    <div class="slider ratio-16-9">
+    <div class="slider ratio-10-3">
         <ul>
             <li>
                 <div class="slider-image" style="background-image:url('{{ $featuredImage[0] }}');"></div>

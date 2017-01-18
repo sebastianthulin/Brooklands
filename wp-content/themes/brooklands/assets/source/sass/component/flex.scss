@@ -1,13 +1,11 @@
-
-$flex-padding: 60px;
-
-.flexible-container {
+.flexible-container,
+.latest-car-container {
 
     position: relative;
 
     @media screen and #{$screen-md-up} {
 
-        padding: $flex-padding*2 0;
+        padding: $grid-gutter-lg*2 0;
 
         &:after,
         .section-image {
@@ -22,11 +20,11 @@ $flex-padding: 60px;
 
     @media screen and #{$screen-below-md} {
 
-        padding: $flex-padding/2 0;
+        padding: $grid-gutter-lg/2 0;
 
         .section-image-mobile {
             background-size: cover;
-            margin-bottom: $flex-padding/2;
+            margin-bottom: $grid-gutter-lg/2;
         }
 
         &.overlay .section-image {

@@ -11,5 +11,6 @@ class App
         new \Brooklands\Theme\Sidebar();
         new \Brooklands\Theme\AdjustedImage();
         new \Brooklands\Theme\OverlayImage();
+        new \Brooklands\Theme\LatestCars();
     }
 }

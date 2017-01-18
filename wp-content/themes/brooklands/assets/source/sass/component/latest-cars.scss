@@ -1,0 +1,24 @@
+.latest-car-container {
+
+    padding-top: $grid-gutter-lg;
+    padding-bottom: $grid-gutter-lg;
+
+    img {
+        width: 100%;
+    }
+
+    span.brand,
+    span.description,
+    span.price {
+        display: block;
+        text-transform: uppercase;
+    }
+
+    span.brand {
+        font-size: 1.2em;
+    }
+
+    span.price {
+        font-weight: bold;
+    }
+}

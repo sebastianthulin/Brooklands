@@ -1,12 +1,11 @@
 #site-header {
-    position: fixed;
+    position: absolute;
     z-index: 200;
     width: 100%;
     padding-top: 0;
     top: 0px;
     left: 0;
     transition: all 200ms;
-    animation: fadein 2s;
 
     nav.navbar {
         background-color: transparent;
@@ -56,7 +55,6 @@
             height: 80px;
             width: auto;
             max-width: none;
-            filter: drop-shadow( 0 0 2px rgba(#000,.2));
         }
 
         svg path,
@@ -84,17 +82,58 @@
 
 }
 
-&.mobile-menu-open header#site-header {
-    background: $white;
+&:after {
+    content: "";
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
 
-    .logotype {
-        svg path,
-        svg use,
-        svg circle,
-        svg glyph,
-        svg text {
-            fill: $black;
+&.mobile-menu-open,
+&:not(.home) {
+
+    header#site-header {
+        background: $white;
+
+        .logotype {
+            svg path,
+            svg use,
+            svg circle,
+            svg glyph,
+            svg text {
+                fill: $black;
+            }
         }
+    }
+}
+
+&:not(.home) {
+
+    #site-header {
+        position: relative;
+    }
+
+    .menu-trigger {
+        color: $black;
+
+        .menu-icon,
+        .menu-icon:after,
+        .menu-icon:before {
+            background-color: $black;
+        }
+    }
+}
+
+&.mobile-menu-open {
+
+    &:after {
+        @include backdrop-blur();
+        right: 0;
+        bottom: 0;
+        transition: 500ms background;
+        background-color: rgba($brooklands-blue, .7);
+        z-index: 35;
     }
 
     .menu-trigger {
@@ -107,12 +146,9 @@
             }
         }
     }
+
 }
 
-&.home #site-header {
-    position: absolute;
-}
-
-&:not(.home) #site-header {
-    background: $white;
+&.admin-bar:not(.home) #site-header {
+    margin-top: 0;
 }
