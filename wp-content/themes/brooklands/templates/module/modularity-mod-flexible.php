@@ -28,7 +28,7 @@
         $image_mobile = "";
     }
 ?>
-<div class="flexible-container modularity-mod-flex <?php echo $module->meta['flexible_image_focal'][0]; ?> <?php echo $module->meta['flexible_layout'][0]; ?>">
+<div class="flexible-container modularity-mod-flex <?php echo $module->meta['flexible_image_focal'][0]; ?> <?php echo $module->meta['flexible_layout'][0]; ?> background-<?php echo $module->meta['flexible_base_background'][0]; ?>">
 <div class="section-image-mobile hidden-md hidden-lg ratio-16-9" style="background-image: url(<?php echo $image_mobile; ?>);"></div>
     <div class="container">
         <div class="grid">

@@ -1,5 +1,8 @@
 <?php
 
+    //Image class
+    $hasImage = "has-image";
+
     //Desktop image
     if (isset($module->meta['flexible_image'][0]) && !empty($module->meta['flexible_image'][0])) {
         $image = wp_get_attachment_image_src(
@@ -12,6 +15,7 @@
         $image = $image[0];
     } else {
         $image = "";
+        $hasImage = "";
     }
 
     //Mobile image
@@ -26,10 +30,11 @@
         $image_mobile = $image_mobile[0];
     } else {
         $image_mobile = "";
+        $hasImage = "";
     }
 
 ?>
-<div class="flexible-container modularity-mod-flex overlay <?php echo $module->meta['flexible_content_placement'][0]; ?>">
+<div class="flexible-container modularity-mod-flex overlay <?php echo $module->meta['flexible_content_placement'][0]; ?> background-<?php echo $module->meta['flexible_base_background'][0]; ?> <?php echo $hasImage; ?>">
     <div class="container">
         <div class="grid">
             <div class="grid-xs-12 grid-md-9 grid-lg-5">

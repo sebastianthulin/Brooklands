@@ -22,8 +22,66 @@
                     @include('partials.mobile-menu')
                 </div>
                 <div class="grid-xs-12 grid-md-4">
-                    Kontakt
+
+                    <div id="social-detials">
+                        <!-- Social -->
+                        @if(!empty(\Brooklands\Admin\Options::getSocialArray()))
+                            <h5>
+                                <?php _e("Brooklands on", 'brooklands'); ?>
+                                {!! implode(", ", \Brooklands\Admin\Options::getSocialArray()) !!}
+                            </h5>
+                        @endif
+                    </div>
+
+                    <div id="contact-details">
+
+                        <!-- Company name -->
+                        @if(\Brooklands\Admin\Options::getGeneralOptions('name'))
+                            <h5>{{ \Brooklands\Admin\Options::getGeneralOptions('name') }}</h5>
+                        @endif
+
+                        <!-- Company open hours -->
+                        @if(\Brooklands\Admin\OpenHours::getWeekSchedule())
+                            <div class="grid">
+                                @foreach(\Brooklands\Admin\OpenHours::getWeekSchedule() as $key => $item)
+                                    <div class="grid-xs-5">{{ $item[0] }}</div>
+                                    <div class="grid-xs-7 text-right">{{ $item[1] }}</div>
+                                @endforeach
+                            </div>
+                        @endif
+
+                         <!-- Company phone number -->
+                        @if(\Brooklands\Admin\Options::getGeneralOptions('phone_number'))
+                            <div class="grid">
+                                <div class="grid-xs-5 strong">
+                                    {{ __("Phone", 'brooklands') }}
+                                </div>
+                                <div class="grid-xs-7 text-right">
+                                    <a href="tel:+46{{ (int) preg_replace("/[^0-9]/","", \Brooklands\Admin\Options::getGeneralOptions('phone_number')) }}">
+                                        {{ \Brooklands\Admin\Options::getGeneralOptions('phone_number') }}
+                                    </a>
+                                </div>
+                            </div>
+                        @endif
+
+                        <!-- Company email -->
+                        @if(\Brooklands\Admin\Options::getGeneralOptions('email_adress'))
+                            <div class="grid">
+                                <div class="grid-xs-4 strong">
+                                    {{ __("Email", 'brooklands') }}
+                                </div>
+                                <div class="grid-xs-8 text-right">
+                                    <a href="mailto:{{ \Brooklands\Admin\Options::getGeneralOptions('email_adress') }}">
+                                        {{ \Brooklands\Admin\Options::getGeneralOptions('email_adress') }}
+                                    </a>
+                                </div>
+                            </div>
+                        @endif
+
+                    </div>
+
                 </div>
+
             </div>
         </div>
     </nav>

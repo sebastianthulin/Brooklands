@@ -112,6 +112,12 @@
 
     #site-header {
         position: relative;
+
+        .logotype {
+            svg {
+                height: 60px;
+            }
+        }
     }
 
     .menu-trigger {
@@ -151,4 +157,45 @@
 
 &.admin-bar:not(.home) #site-header {
     margin-top: 0;
+}
+
+#contact-details {
+    text-transform: uppercase;
+    font-size: .8em;
+    line-height: 200%;
+
+    .grid + .grid {
+        margin-top: 0;
+    }
+
+    .grid,
+    .grid a {
+        color: $brooklands-lgray;
+    }
+
+    .grid a:hover {
+        text-decoration: none;
+        color: $black;
+    }
+}
+
+#social-detials {
+    text-transform: uppercase;
+    font-size: 1.2em;
+    line-height: 200%;
+    margin-bottom: $grid-gutter-md;
+
+    h5 {
+        font-size: .8em;
+    }
+
+    a {
+        color: $brooklands-lgray;
+
+        &:hover {
+            text-decoration: none;
+            color: $black;
+        }
+    }
+
 }

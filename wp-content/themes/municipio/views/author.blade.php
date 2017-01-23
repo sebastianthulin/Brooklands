@@ -5,10 +5,8 @@
 @include('partials.archive-filters')
 
 <div class="container main-container">
-    @include('partials.breadcrumbs')
-
     <div class="grid">
-        @if (get_field('archive_' . sanitize_title($postType) . '_show_sidebar_navigation', 'option'))
+        @if ($hasLeftSidebar || get_field('archive_' . sanitize_title($postType) . '_show_sidebar_navigation', 'option'))
             @include('partials.sidebar-left')
         @endif
 
@@ -18,19 +16,12 @@
                 $cols = 'grid-md-8 grid-lg-6';
             } elseif (is_active_sidebar('right-sidebar') || get_field('archive_' . sanitize_title($postType) . '_show_sidebar_navigation', 'option')) {
                 $cols = 'grid-md-12 grid-lg-9';
+            } elseif ($hasLeftSidebar) {
+                $cols = 'grid-md-12 grid-lg-9';
             }
         ?>
 
         <div class="{{ $cols }}">
-
-            @if (is_category())
-            <div class="grid">
-                <div class="grid-xs-12">
-                    <h1>{{ single_cat_title() }}</h1>
-                    {!! category_description() !!}
-                </div>
-            </div>
-            @endif
 
             @if (is_active_sidebar('content-area-top'))
                 <div class="grid sidebar-content-area sidebar-content-area-top">
@@ -39,6 +30,9 @@
             @endif
 
             <div class="grid">
+                <div class="grid-xs-12">
+                    <h2><?php _e('Posts by', 'municipio'); ?> {{ municipio_get_author_full_name() }}</h2>
+                </div>
                 @if (have_posts())
                     @while(have_posts())
                         {!! the_post() !!}

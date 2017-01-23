@@ -3,6 +3,14 @@
 
     position: relative;
 
+    &.background-dark {
+        background-color: $brooklands-blue;
+    }
+
+    &.background-light {
+        background-color: $brooklands-bggray;
+    }
+
     @media screen and #{$screen-md-up} {
 
         padding: $grid-gutter-lg*2 0;
@@ -74,15 +82,23 @@
         }
     }
 
-    &.overlay {
+    &.overlay.background-dark,
+    &.overlay.background-light.has-image {
         color: $white;
+    }
 
-        &:before {
+    &.overlay.background-light:not(.has-image) {
+        color: $black;
+    }
+
+    &.overlay {
+
+        &.has-image:before {
             @include cover();
             @include backdrop-blur();
             content: "";
-            background: rgba($brooklands-blue, .7);
             z-index: 8;
+            background: rgba($brooklands-blue, .7);
         }
 
         &.text-position-left .grid {

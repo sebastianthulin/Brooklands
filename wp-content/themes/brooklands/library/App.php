@@ -5,6 +5,10 @@ class App
 {
     public function __construct()
     {
+
+        new \Brooklands\Admin\Options();
+        new \Brooklands\Admin\OpenHours();
+
         new \Brooklands\Theme\Enqueue();
         new \Brooklands\Theme\DisableComments();
         new \Brooklands\Theme\Filters();
