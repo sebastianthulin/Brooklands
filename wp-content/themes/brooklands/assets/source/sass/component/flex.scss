@@ -149,26 +149,6 @@
         margin-top: 15px;
     }
 
-    .btn,
-    .btn-lg,
-    .btn-md {
-        color: $brooklands-blue;
-        display: block;
-        background: none;
-        border: 2px solid $brooklands-blue;
-        text-align: center;
-        font-size: 1.05em;
-        text-transform: uppercase;
-        transition: all 150ms;
-        border-radius: 1px;
-        padding: .9em;
-
-        &:hover {
-            background: $brooklands-blue;
-            color: $white;
-        }
-    }
-
 }
 
 .flex-section + .flex-section {

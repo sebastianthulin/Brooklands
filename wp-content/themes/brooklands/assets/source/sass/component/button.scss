@@ -1,15 +1,24 @@
-
 .btn,
-.read-more {
-    font-family: $base-font-family;
+.btn-lg,
+.btn-md {
+    color: $brooklands-blue;
+    display: inline-block;
+    background: none;
+    border: 2px solid $brooklands-blue;
+    text-align: center;
+    font-size: 1.05em;
     text-transform: uppercase;
-    font-weight: 400;
-}
+    transition: all 150ms;
+    border-radius: 1px;
+    padding: .9em;
 
-.btn-green {
-    background-color: $palette-3;
+    &.btn-light {
+        border-color: $white;
+        color: $white;
+    }
 
     &:hover {
-        background-color: darken($palette-3, 5%);
+        background: $brooklands-blue;
+        color: $white;
     }
 }

@@ -11,7 +11,7 @@ namespace Brooklands\Controller;
  *    \Municipio\Helper\Template::add(__('Custom template', 'municipio'), \Municipio\Helper\Template::locateTemplate('custom-template-view.blade.php'));
  */
 
-class ExampleController extends \Municipio\Controller\BaseController
+class Cars extends \Municipio\Controller\BaseController
 {
     public function init()
     {

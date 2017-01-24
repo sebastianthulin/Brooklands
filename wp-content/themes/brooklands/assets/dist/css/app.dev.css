@@ -842,44 +842,83 @@
     .is-child-theme .latest-car-container p + .btn,
     .is-child-theme .latest-car-container p .btn {
       margin-top: 15px; }
-    .is-child-theme .flexible-container .btn,
-    .is-child-theme .flexible-container .btn-lg,
-    .is-child-theme .flexible-container .btn-md,
-    .is-child-theme .latest-car-container .btn,
-    .is-child-theme .latest-car-container .btn-lg,
-    .is-child-theme .latest-car-container .btn-md {
-      color: #111820;
-      display: block;
-      background: none;
-      border: 2px solid #111820;
-      text-align: center;
-      font-size: 1.05em;
-      text-transform: uppercase;
-      -webkit-transition: all 150ms;
-              transition: all 150ms;
-      border-radius: 1px;
-      padding: .9em; }
-      .is-child-theme .flexible-container .btn:hover,
-      .is-child-theme .flexible-container .btn-lg:hover,
-      .is-child-theme .flexible-container .btn-md:hover,
-      .is-child-theme .latest-car-container .btn:hover,
-      .is-child-theme .latest-car-container .btn-lg:hover,
-      .is-child-theme .latest-car-container .btn-md:hover {
-        background: #111820;
-        color: #fff; }
   .is-child-theme .flex-section + .flex-section {
     margin-top: 0; }
+  .is-child-theme .latest-car-container a,
+  .is-child-theme .car-container a {
+    padding: 15px; }
+  .is-child-theme .latest-car-container img,
+  .is-child-theme .car-container img {
+    width: 100%; }
+  .is-child-theme .latest-car-container span.brand,
+  .is-child-theme .latest-car-container span.description,
+  .is-child-theme .latest-car-container span.price,
+  .is-child-theme .car-container span.brand,
+  .is-child-theme .car-container span.description,
+  .is-child-theme .car-container span.price {
+    display: block;
+    text-transform: uppercase; }
+  .is-child-theme .latest-car-container span.brand,
+  .is-child-theme .car-container span.brand {
+    font-size: 1.2em; }
+  .is-child-theme .latest-car-container span.price,
+  .is-child-theme .car-container span.price {
+    font-weight: bold; }
   .is-child-theme .latest-car-container {
     padding-top: 45px;
     padding-bottom: 45px; }
-    .is-child-theme .latest-car-container img {
-      width: 100%; }
-    .is-child-theme .latest-car-container span.brand,
-    .is-child-theme .latest-car-container span.description,
-    .is-child-theme .latest-car-container span.price {
-      display: block;
-      text-transform: uppercase; }
-    .is-child-theme .latest-car-container span.brand {
-      font-size: 1.2em; }
-    .is-child-theme .latest-car-container span.price {
-      font-weight: bold; }
+  .is-child-theme .car-container a {
+    display: inline-block;
+    margin-bottom: 45px; }
+  .is-child-theme .cars-header {
+    position: relative;
+    background-size: cover; }
+    .is-child-theme .cars-header:before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: rgba(17, 24, 32, 0.7);
+      z-index: 5; }
+    .is-child-theme .cars-header .container {
+      z-index: 10;
+      position: relative;
+      padding: 45px 0; }
+    .is-child-theme .cars-header h1, .is-child-theme .cars-header label {
+      color: #fff; }
+    .is-child-theme .cars-header select {
+      border: 2px solid #fff;
+      background: none;
+      color: #fff; }
+      .is-child-theme .cars-header select:after {
+        content: ":P"; }
+    .is-child-theme .cars-header .numberOfCarsInStock {
+      color: #000; }
+      .is-child-theme .cars-header .numberOfCarsInStock u {
+        color: #fff; }
+  .is-child-theme .btn,
+  .is-child-theme .btn-lg,
+  .is-child-theme .btn-md {
+    color: #111820;
+    display: inline-block;
+    background: none;
+    border: 2px solid #111820;
+    text-align: center;
+    font-size: 1.05em;
+    text-transform: uppercase;
+    -webkit-transition: all 150ms;
+            transition: all 150ms;
+    border-radius: 1px;
+    padding: .9em; }
+    .is-child-theme .btn.btn-light,
+    .is-child-theme .btn-lg.btn-light,
+    .is-child-theme .btn-md.btn-light {
+      border-color: #fff;
+      color: #fff; }
+    .is-child-theme .btn:hover,
+    .is-child-theme .btn-lg:hover,
+    .is-child-theme .btn-md:hover {
+      background: #111820;
+      color: #fff; }

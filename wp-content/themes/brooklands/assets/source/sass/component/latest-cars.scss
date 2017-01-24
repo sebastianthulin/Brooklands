@@ -1,7 +1,9 @@
-.latest-car-container {
+.latest-car-container,
+.car-container {
 
-    padding-top: $grid-gutter-lg;
-    padding-bottom: $grid-gutter-lg;
+    a {
+        padding: $grid-gutter-sm;
+    }
 
     img {
         width: 100%;
@@ -20,5 +22,57 @@
 
     span.price {
         font-weight: bold;
+    }
+
+}
+
+.latest-car-container {
+    padding-top: $grid-gutter-lg;
+    padding-bottom: $grid-gutter-lg;
+}
+
+.car-container {
+    a {
+        display: inline-block;
+        margin-bottom: $grid-gutter-lg;
+    }
+}
+
+.cars-header {
+    position: relative;
+    background-size: cover;
+
+    &:before {
+        @include cover();
+        content: "";
+        background-color: rgba($brooklands-blue, .7);
+        z-index: 5;
+    }
+
+    .container {
+        z-index: 10;
+        position: relative;
+        padding: $grid-gutter-lg 0;
+    }
+
+    h1, label {
+        color: $white;
+    }
+
+    select {
+        border: 2px solid #fff;
+        background: none;
+        color: #fff;
+
+        &:after {
+            content: ":P";
+        }
+    }
+
+    .numberOfCarsInStock {
+        color: #000;
+        u {
+            color: $white;
+        }
     }
 }
