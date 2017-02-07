@@ -13,10 +13,97 @@ namespace Brooklands\Controller;
 
 class Cars extends \Municipio\Controller\BaseController
 {
+
+    protected $apiUrl = 'http://brooklands.dev/cars.xml';
+    protected $optionKey = 'avabile_cars';
+    protected $timeToLive = 60*15;
+
     public function init()
     {
-        // This will make a variable with name "exampleVariable"
-        // accessible from the view of this controller
-        $this->data['exampleVariable'] = 'example value';
+        $cars = $this->getCars();
+
+        if (!$cars) {
+            $cars = $this->updateCars();
+        }
+
+        if ($cars) {
+            $this->data['cars'] = array(
+                'state' => true,
+                'data' => $cars['car']
+            );
+        } else {
+            $this->data['cars'] = array(
+                'state' => false,
+                'data' => array(
+                    'title' => __("Whoopsie!", 'brooklands'),
+                    'content' => __("Sorry, we could not contact the car service for a while. Please try again soon!", 'brooklands')
+                )
+            );
+
+            //Filters
+
+        }
+    }
+
+    private function curl($url)
+    {
+
+        //Validate url
+        if (!$url) {
+            wp_die("Carfetch: Invalid url.");
+        }
+
+        //Check for curl
+        if (!function_exists('curl_init')) {
+            wp_die("Carfetch: Curl not installed.");
+        }
+
+        //Run curl
+        $curl = curl_init();
+
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 5);
+
+        return curl_exec($curl);
+    }
+
+    public function updateCars()
+    {
+        $cars = $this->Xml2Array(
+            $this->sanitize(
+                $this->curl($this->apiUrl)
+            )
+        );
+
+        if (!empty($cars)) {
+            set_transient($this->optionKey, $cars, $this->timeToLive);
+            return $cars;
+        }
+        return false;
+    }
+
+    public function getCars()
+    {
+        return get_transient($this->optionKey);
+    }
+
+    private function sanitize($string)
+    {
+        return preg_replace('/&(?!#?[a-z0-9]+;)/', '&amp;', $string);
+    }
+
+    private function Xml2Array($object)
+    {
+        $object  = simplexml_load_string($object);
+
+        if (!$object) {
+            return libxml_get_errors();
+        }
+
+        $object  = json_encode($object);
+        $object  = json_decode($object, true);
+
+        return $object;
     }
 }

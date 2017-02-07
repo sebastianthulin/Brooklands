@@ -14,6 +14,7 @@
 /* Configurations */
 /* Mixins */
 /* Mixin */
+/* Angle */
 /* Animations */
 @-webkit-keyframes fadein {
   from {
@@ -128,6 +129,8 @@
   /* Layout */
   /* Menus */
   /* Component */ }
+  .is-child-theme {
+    background-color: #F2F2F2; }
   .is-child-theme h1, .is-child-theme h2, .is-child-theme h3, .is-child-theme h4, .is-child-theme h5, .is-child-theme h6 {
     text-rendering: geometricPrecision;
     -webkit-font-feature-settings: "kern" 1;
@@ -880,24 +883,64 @@
       bottom: 0;
       left: 0;
       content: "";
-      background-color: rgba(17, 24, 32, 0.7);
+      background-color: rgba(17, 24, 32, 0.9);
       z-index: 5; }
     .is-child-theme .cars-header .container {
       z-index: 10;
       position: relative;
       padding: 45px 0; }
+    .is-child-theme .cars-header h1 {
+      margin-bottom: 45px; }
     .is-child-theme .cars-header h1, .is-child-theme .cars-header label {
-      color: #fff; }
+      color: #fff;
+      text-transform: uppercase; }
+    .is-child-theme .cars-header label {
+      display: block;
+      font-size: .9em;
+      line-height: 100%;
+      padding-bottom: 11.25px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+    .is-child-theme .cars-header .select-wrapper {
+      display: block;
+      position: relative;
+      width: 100%; }
+      .is-child-theme .cars-header .select-wrapper:after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCAyODQuOTI5IDI4NC45MjkiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI4NC45MjkgMjg0LjkyOTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxwYXRoIGQ9Ik0yODIuMDgyLDc2LjUxMWwtMTQuMjc0LTE0LjI3M2MtMS45MDItMS45MDYtNC4wOTMtMi44NTYtNi41Ny0yLjg1NmMtMi40NzEsMC00LjY2MSwwLjk1LTYuNTYzLDIuODU2TDE0Mi40NjYsMTc0LjQ0MSAgIEwzMC4yNjIsNjIuMjQxYy0xLjkwMy0xLjkwNi00LjA5My0yLjg1Ni02LjU2Ny0yLjg1NmMtMi40NzUsMC00LjY2NSwwLjk1LTYuNTY3LDIuODU2TDIuODU2LDc2LjUxNUMwLjk1LDc4LjQxNywwLDgwLjYwNywwLDgzLjA4MiAgIGMwLDIuNDczLDAuOTUzLDQuNjYzLDIuODU2LDYuNTY1bDEzMy4wNDMsMTMzLjA0NmMxLjkwMiwxLjkwMyw0LjA5MywyLjg1NCw2LjU2NywyLjg1NHM0LjY2MS0wLjk1MSw2LjU2Mi0yLjg1NEwyODIuMDgyLDg5LjY0NyAgIGMxLjkwMi0xLjkwMywyLjg0Ny00LjA5MywyLjg0Ny02LjU2NUMyODQuOTI5LDgwLjYwNywyODMuOTg0LDc4LjQxNywyODIuMDgyLDc2LjUxMXoiIGZpbGw9IiNGRkZGRkYiLz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PC9zdmc+);
+        background-size: contain;
+        top: 50%;
+        margin-top: -5px;
+        right: 15px;
+        position: absolute; }
     .is-child-theme .cars-header select {
       border: 2px solid #fff;
       background: none;
-      color: #fff; }
-      .is-child-theme .cars-header select:after {
-        content: ":P"; }
-    .is-child-theme .cars-header .numberOfCarsInStock {
-      color: #000; }
-      .is-child-theme .cars-header .numberOfCarsInStock u {
+      color: #fff;
+      display: block;
+      width: 100%;
+      text-transform: uppercase; }
+    .is-child-theme .cars-header .btn-large,
+    .is-child-theme .cars-header .btn-big {
+      min-width: 300px; }
+    .is-child-theme .cars-header .in-stock {
+      color: #eee; }
+      .is-child-theme .cars-header .in-stock u {
         color: #fff; }
+  .is-child-theme .filter-options {
+    margin-top: 5px; }
+  .is-child-theme .btn.btn-subtle {
+    border: none;
+    font-size: .9em;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.07); }
+    .is-child-theme .btn.btn-subtle.btn-medium {
+      padding: 21px 40.5px; }
+    .is-child-theme .btn.btn-subtle.btn-medium + .btn-medium {
+      margin-left: 15px; }
   .is-child-theme .btn,
   .is-child-theme .btn-lg,
   .is-child-theme .btn-md {

@@ -45,7 +45,7 @@
     &:before {
         @include cover();
         content: "";
-        background-color: rgba($brooklands-blue, .7);
+        background-color: rgba($brooklands-blue, .9);
         z-index: 5;
     }
 
@@ -55,24 +55,80 @@
         padding: $grid-gutter-lg 0;
     }
 
+    h1 {
+        margin-bottom: $grid-gutter-lg;
+    }
+
     h1, label {
         color: $white;
+        text-transform: uppercase;
+    }
+
+    label {
+        display: block;
+        font-size: .9em;
+        line-height: 100%;
+        padding-bottom: $grid-gutter-sm*.75;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .select-wrapper {
+        display: block;
+        position: relative;
+        width: 100%;
+
+        &:after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            @include angle();
+            top: 50%;
+            margin-top: -5px;
+            right: 15px;
+            position: absolute;
+        }
     }
 
     select {
         border: 2px solid #fff;
         background: none;
         color: #fff;
-
-        &:after {
-            content: ":P";
-        }
+        display: block;
+        width: 100%;
+        text-transform: uppercase;
     }
 
-    .numberOfCarsInStock {
-        color: #000;
+    .btn-large,
+    .btn-big {
+        min-width: 300px;
+    }
+
+    .in-stock {
+        color: #eee;
         u {
             color: $white;
         }
+    }
+
+}
+
+.filter-options {
+    margin-top: 5px;
+}
+
+.btn.btn-subtle {
+    border: none;
+    font-size: .9em;
+    background-color: $white;
+    box-shadow: 0 0 10px rgba($black, .07);
+
+    &.btn-medium {
+        padding: $grid-gutter-md*.7 $grid-gutter-lg*.9;
+    }
+
+    &.btn-medium + .btn-medium {
+        margin-left: $grid-gutter-sm;
     }
 }
