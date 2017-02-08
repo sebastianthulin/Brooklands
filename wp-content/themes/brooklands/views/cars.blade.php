@@ -16,44 +16,59 @@
             <div class="grid-md-2">
                 <label for="brand"><?php _e("Brand", 'brooklands'); ?></label>
                 <span class="select-wrapper">
-                    <select id="brand">
+                    <select name="brand" id="brand" class="filter-trigger">
                         <option value=""><?php _e("Choose brand", 'brooklands'); ?></option>
+                        @foreach($cars['option']['brand'] as $key => $term)
+                            <option value="{{$term}}">{{$term}}</option>
+                        @endforeach
                     </select>
                 </span>
             </div>
 
             <div class="grid-md-2">
-                <label for="brand"><?php _e("Model year from", 'brooklands'); ?></label>
+                <label for="year-from"><?php _e("Model year from", 'brooklands'); ?></label>
                 <span class="select-wrapper">
-                    <select id="brand">
+                    <select name="year-from" id="year-from" class="filter-trigger">
                         <option value=""><?php _e("Choose a year", 'brooklands'); ?></option>
+                        @foreach($cars['option']['year'] as $key => $term)
+                            <option value="{{$term}}">{{$term}}</option>
+                        @endforeach
                     </select>
                 </span>
             </div>
 
             <div class="grid-md-2">
-                <label for="brand"><?php _e("Model year to", 'brooklands'); ?></label>
+                <label for="year-to"><?php _e("Model year to", 'brooklands'); ?></label>
                 <span class="select-wrapper">
-                    <select id="brand">
+                    <select name="year-to" id="year-to" class="filter-trigger">
                         <option value=""><?php _e("Choose a year", 'brooklands'); ?></option>
+                        @foreach($cars['option']['year'] as $key => $term)
+                            <option value="{{$term}}">{{$term}}</option>
+                        @endforeach
                     </select>
                 </span>
             </div>
 
             <div class="grid-md-2">
-                <label for="brand"><?php _e("Price from", 'brooklands'); ?></label>
+                <label for="price-from"><?php _e("Price from", 'brooklands'); ?></label>
                 <span class="select-wrapper">
-                    <select id="brand">
+                    <select name="price-from" id="price-from" class="filter-trigger">
                         <option value=""><?php _e("Choose lowest price", 'brooklands'); ?></option>
+                        @foreach($cars['option']['price'] as $key => $term)
+                            <option value="{{$term}}">{{$term}}</option>
+                        @endforeach
                     </select>
                 </span>
             </div>
 
             <div class="grid-md-2">
-                <label for="brand"><?php _e("Price to", 'brooklands'); ?></label>
+                <label for="price-to"><?php _e("Price to", 'brooklands'); ?></label>
                 <span class="select-wrapper">
-                    <select id="brand">
+                    <select name="price-to" id="price-to" class="filter-trigger">
                         <option value=""><?php _e("Choose highest price", 'brooklands'); ?></option>
+                        @foreach($cars['option']['price'] as $key => $term)
+                            <option value="{{$term}}">{{$term}}</option>
+                        @endforeach
                     </select>
                 </span>
             </div>
@@ -70,7 +85,7 @@
 
         <div class="grid">
             <div class="grid-xs-12 text-center">
-                <button class="btn btn-light btn-large">Visa bilarna</button>
+                <a href="#cars-list" class="btn btn-light btn-large"><?php _e("Show the cars", 'brooklands'); ?></a>
             </div>
         </div>
 
@@ -78,7 +93,7 @@
 </div>
 
 
-<div class="container main-container car-container">
+<div class="container main-container car-container" id="cars-list">
 
     <div class="grid hidden-xs">
 
@@ -88,10 +103,12 @@
 
             <div class="filter-options">
 
-                <label for="brand" class="btn btn-subtle btn-medium"><?php _e("Brand", 'brooklands'); ?></label>
-                <label for="model" class="btn btn-subtle btn-medium"><?php _e("Model", 'brooklands'); ?></label>
-                <label for="distance" class="btn btn-subtle btn-medium"><?php _e("Milage", 'brooklands'); ?></label>
-                <label for="price" class="btn btn-subtle btn-medium"><?php _e("Price", 'brooklands'); ?></label>
+                <div class="sort">
+                    <label for="brand" class="btn btn-subtle btn-medium"><?php _e("Brand", 'brooklands'); ?></label>
+                    <label for="model" class="btn btn-subtle btn-medium"><?php _e("Model", 'brooklands'); ?></label>
+                    <label for="distance" class="btn btn-subtle btn-medium"><?php _e("Milage", 'brooklands'); ?></label>
+                    <label for="price" class="btn btn-subtle btn-medium"><?php _e("Price", 'brooklands'); ?></label>
+                </div>
 
                 <div class="hidden">
                     <input type="radio" id="brand" name="gender" value="male">
@@ -124,23 +141,27 @@
 
     </div>
 
-    <div class="grid">
+
+    <ul class="list grid">
         @while(have_posts())
             {!! the_post() !!}
 
             @if($cars['state'] === true)
-
                 @foreach($cars['data'] as $car)
-                    <div class="grid-xs-12 grid-sm-6 grid-md-3 grid-lg-3">
+                    <li class="grid-xs-12 grid-sm-6 grid-md-3 grid-lg-3">
                         <a href="#modal-{{ $car['id'] }}">
                             <img src="http://placeholder.pics/svg/300" class="responsive" />
                             <span class="brand">{{ $car['brand'] }}</span>
                             <span class="details">{{ $car['modeldescription'] }}</span>
-                            <span class="price">{{ $car['price-sek'] }}:-</span>
-                        </a>
-                    </div>
-                @endforeach
+                            <span class="price">{{ preg_replace("/[^0-9]/", "", $car['price-sek']) }}</span>
 
+                            <!-- Sort columns -->
+                            <span class="year hidden">{{ (int) $car['yearmodel'] }}</span>
+                            <span class="milage hidden">{{ (int) $car['miles'] }}</span>
+
+                        </a>
+                    </li>
+                @endforeach
             @else
                 <div class="grid-xs-12 text-center">
                     <h1>{{ $cars['data']['title'] }}</h1>
@@ -149,8 +170,9 @@
             @endif
 
         @endwhile
+    </ul>
 
-    </div>
+
 
      <div class="grid">
         <div class="grid-xs-12 text-right">
@@ -206,7 +228,7 @@
 
                                         <tr>
                                             <td class="strong"><?php _e("Milage", 'brooklands'); ?>:</td>
-                                            <td>{{ $car['miles'] }}<?php _e("km", 'brooklands'); ?></td>
+                                            <td>{{ $car['miles'] }} <?php _e("miles", 'brooklands'); ?></td>
                                         </tr>
 
                                         <tr>
@@ -245,7 +267,6 @@
 
         @endforeach
     @endif
-
 
     <div class="grid hidden-lg hidden-xl">
         <div class="grid-sm-12">

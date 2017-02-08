@@ -17,6 +17,7 @@ class Cars extends \Municipio\Controller\BaseController
     protected $apiUrl = 'http://brooklands.dev/cars.xml';
     protected $optionKey = 'avabile_cars';
     protected $timeToLive = 60*15;
+    protected $runtimeCache = false;
 
     public function init()
     {
@@ -27,10 +28,18 @@ class Cars extends \Municipio\Controller\BaseController
         }
 
         if ($cars) {
+
+            //Define car data
             $this->data['cars'] = array(
                 'state' => true,
-                'data' => $cars['car']
+                'data' => $cars['car'],
+                'option' => array()
             );
+
+            //Get option arrays
+            $this->data['cars']['option']['brand']  = $this->getOptions('brand');
+            $this->data['cars']['option']['year']   = $this->getOptions('yearmodel');
+            $this->data['cars']['option']['price']  = $this->getOptions('price-sek');
         } else {
             $this->data['cars'] = array(
                 'state' => false,
@@ -39,10 +48,38 @@ class Cars extends \Municipio\Controller\BaseController
                     'content' => __("Sorry, we could not contact the car service for a while. Please try again soon!", 'brooklands')
                 )
             );
-
-            //Filters
-
         }
+    }
+
+    public function getOptions($key, $stack = array())
+    {
+        if (is_null($key)) {
+            wp_die("Error: Option identifier missing.");
+        }
+
+        if (empty($this->data['cars']['data'])) {
+            wp_die("Error: No data avabile.");
+        }
+
+        foreach ((array) $this->data['cars']['data'] as $car) {
+            if (isset($car[$key]) && !in_array($car[$key], $stack)) {
+                if (in_array($key, array('yearmodel', 'price-sek'))) {
+                    $stack[] = (int) preg_replace("/[^0-9]/", "", $car[$key]);
+                } else {
+                    $stack[] = $car[$key];
+                }
+            }
+        }
+
+        //Simple sorting
+        if ($key != "price-sek") {
+            sort($stack, SORT_LOCALE_STRING);
+        } else {
+            sort($stack, SORT_NUMERIC);
+        }
+
+        //Return
+        return (array) array_unique($stack);
     }
 
     private function curl($url)
@@ -85,7 +122,13 @@ class Cars extends \Municipio\Controller\BaseController
 
     public function getCars()
     {
-        return get_transient($this->optionKey);
+
+        //Get data from runtime cache
+        if ($this->runtimeCache !== false) {
+            return $this->runtimeCache;
+        }
+
+        return $this->runtimeCache = get_transient($this->optionKey);
     }
 
     private function sanitize($string)
