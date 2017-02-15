@@ -16,7 +16,7 @@ class Editor
         //$this->printBreak();
 
         // Filters
-        add_filter('oembed_result', array($this, 'oembed'), 10, 3);
+        add_filter('embed_oembed_html', '\Municipio\Admin\UI\Editor::oembed', 10, 4);
 
         add_filter('the_content', function ($content) {
             $content = str_replace('<!--printbreak-->', '<div style="page-break-before:always;" class="clearfix print-only"></div>', $content);
@@ -48,15 +48,33 @@ class Editor
     }
 
     /**
-     * Wrap oembed in 16:9 ratio wrapper
+     * Filters oembed output
      * @param  string $data Markup
      * @param  string $url  Embedded url
      * @param  array $args  Args
      * @return string       Markup
      */
-    public function oembed($data, $url, $args)
+    public static function oembed($html, $url, $attr, $postId, $wrapper = true)
     {
-        return '<div class="ratio-16-9">' . $data . '</div>';
+        $provider = false;
+
+        if (strpos(strtolower($url), 'youtube') !== false || strpos(strtolower($url), 'youtu.be') !== false) {
+            $provider = 'YouTube';
+        } elseif (strpos(strtolower($url), 'vimeo') !== false) {
+            $provider = 'Vimeo';
+        }
+
+        $shouldFilter = apply_filters('Municipio/oembed/should_filter_markup', true, $provider, $url, $postId);
+
+        // Check if there's a oembed class for the provider
+        if (!class_exists('\Municipio\Oembed\\' . $provider) || !$shouldFilter) {
+            return '<div class="ratio-16-9">' . $html . '</div>';
+        }
+
+        $class = '\Municipio\Oembed\\' . $provider;
+        $oembed = new $class($url, $html, $wrapper);
+
+        return $oembed->output();
     }
 
     /**

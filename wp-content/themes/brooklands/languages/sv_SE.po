@@ -1,0 +1,213 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Brooklands\n"
+"POT-Creation-Date: 2017-02-15 20:29+0100\n"
+"PO-Revision-Date: 2017-02-15 20:34+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv_SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: style.css\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: library/Admin/OpenHours.php:13
+msgid "Monday"
+msgstr "Måndag"
+
+#: library/Admin/OpenHours.php:14
+msgid "Tuesday"
+msgstr "Tisdag"
+
+#: library/Admin/OpenHours.php:15
+msgid "Wendsday"
+msgstr "Onsdag"
+
+#: library/Admin/OpenHours.php:16
+msgid "Thursday"
+msgstr "Torsdag"
+
+#: library/Admin/OpenHours.php:17
+msgid "Friday"
+msgstr "Fredag"
+
+#: library/Admin/OpenHours.php:18
+msgid "Saturday"
+msgstr "Lördag"
+
+#: library/Admin/OpenHours.php:19
+msgid "Sunday"
+msgstr "Södag"
+
+#: library/Admin/Options.php:22
+msgid "General Settings"
+msgstr "Generella inställningar"
+
+#: library/Admin/Options.php:51
+msgid "Facebook"
+msgstr ""
+
+#: library/Admin/Options.php:55
+msgid "Instagram"
+msgstr ""
+
+#: library/Admin/Options.php:59
+msgid "Pinterest"
+msgstr ""
+
+#: library/Controller/Cars.php:47
+msgid "Whoopsie!"
+msgstr "Hoppsan!"
+
+#: library/Controller/Cars.php:48
+msgid ""
+"Sorry, we could not contact the car service for a while. Please try again "
+"soon!"
+msgstr ""
+"Vi kunde tyvärr inte kontakta bilförmedlingstjänsten just nu. Vänligen "
+"försök igen."
+
+#: library/Theme/Cars.php:13
+msgid "Cars"
+msgstr "Bilar"
+
+#: library/Theme/Filters.php:48
+msgid "Open today: "
+msgstr "Öppet idag"
+
+#: library/Theme/Sidebar.php:17
+msgid "Full width (after content)"
+msgstr "Fullbredd"
+
+#: library/Theme/Sidebar.php:18
+msgid "Full width sidebar at the bottom of the page"
+msgstr "Fullbredd, i botten av sidan. "
+
+#: views/cars.blade.php:17 views/cars.blade.php:107
+msgid "Brand"
+msgstr "Märke"
+
+#: views/cars.blade.php:20
+msgid "Choose brand"
+msgstr "Välj märke"
+
+#: views/cars.blade.php:29
+msgid "Model year from"
+msgstr "Modellår från"
+
+#: views/cars.blade.php:32 views/cars.blade.php:44
+msgid "Choose a year"
+msgstr "Välj år"
+
+#: views/cars.blade.php:41
+msgid "Model year to"
+msgstr "Modellår till"
+
+#: views/cars.blade.php:53
+msgid "Price from"
+msgstr "Pris från"
+
+#: views/cars.blade.php:56
+msgid "Choose lowest price"
+msgstr "Välj lägsta pris"
+
+#: views/cars.blade.php:65
+msgid "Price to"
+msgstr "Pris till"
+
+#: views/cars.blade.php:68
+msgid "Choose highest price"
+msgstr "Välj högsta pris"
+
+#: views/cars.blade.php:88
+msgid "Show the cars"
+msgstr "Visa bilarna"
+
+#: views/cars.blade.php:102
+msgid "Sort by"
+msgstr "Sortera efter"
+
+#: views/cars.blade.php:108
+msgid "Model"
+msgstr "Modell"
+
+#: views/cars.blade.php:109 views/cars.blade.php:230
+msgid "Milage"
+msgstr "Miltal"
+
+#: views/cars.blade.php:110
+msgid "Price"
+msgstr "Pris"
+
+#: views/cars.blade.php:129
+msgid "A-Z"
+msgstr "A-Ö"
+
+#: views/cars.blade.php:130
+msgid "Z-A"
+msgstr "Ö-A"
+
+#: views/cars.blade.php:136
+msgid "Page"
+msgstr "Sida"
+
+#: views/cars.blade.php:136
+msgid "of"
+msgstr "av"
+
+#: views/cars.blade.php:220
+msgid "Name"
+msgstr "Namn"
+
+#: views/cars.blade.php:225
+msgid "Yearmodel"
+msgstr "Årsmodell"
+
+#: views/cars.blade.php:231
+msgid "miles"
+msgstr "Miltal"
+
+#: views/cars.blade.php:235
+msgid "Gearbox"
+msgstr "Växellåda"
+
+#: views/cars.blade.php:240
+msgid "Fuel"
+msgstr "Bränsle"
+
+#: views/cars.blade.php:245
+msgid "Body type"
+msgstr "Kaross"
+
+#: views/cars.blade.php:250
+msgid "Color"
+msgstr "Färg"
+
+#: views/partials/header/jumbo.blade.php:9
+msgid "Menu"
+msgstr "Meny"
+
+#: views/partials/header/jumbo.blade.php:30
+msgid "Brooklands on"
+msgstr "Brooklands på"
+
+#: views/templates/master.blade.php:52
+msgid "Jump to the main menu"
+msgstr "Hoppa till huvudmenyn"
+
+#: views/templates/master.blade.php:53
+msgid "Jump to the main content"
+msgstr "Hoppa till huvudinnehåll"
+
+#. Theme Name of the plugin/theme
+msgid "Brooklands"
+msgstr "Brooklands"

@@ -34,6 +34,7 @@
                 <div class="grid-xs-8 grid-sm-8 grid-md-12 text-left-sm text-left-xs">
                     {!! municipio_get_logotype(get_field('header_logotype', 'option'), get_field('logotype_tooltip', 'option'), true, get_field('header_tagline_enable', 'option')) !!}
                 </div>
+
                 @if (strlen($navigation['mobileMenu']) > 0)
                     <div class="grid-xs-4 grid-sm-4 text-right-sm text-right-xs {!! apply_filters('Municipio/mobile_menu_breakpoint','hidden-md hidden-lg'); !!}">
                         <a href="#mobile-menu" class=" menu-trigger" data-target="#mobile-menu"><span class="menu-icon"></span> <?php _e('Menu', 'municipio'); ?></a>
@@ -42,57 +43,30 @@
             </div>
         </div>
 
-        @if (get_field('sub_site_title', 'option'))
+        @if (get_field('sub_site_title', 'option') && !empty(get_field('sub_site_title', 'option')))
         <div class="grid-auto text-center hidden-xs hidden-sm hidden-md">
             <span class="sub-site-title">{!! get_field('sub_site_title', 'option') !!}</span>
         </div>
         @endif
 
+        @if ($navigation['headerTabsMenu'] || $navigation['headerHelpMenu'] || (is_array(get_field('search_display', 'option')) && in_array('header', get_field('search_display', 'option'))) || (!is_front_page() && is_array(get_field('search_display', 'option')) && in_array('header_sub', get_field('search_display', 'option'))))
         <div class="grid-auto text-center-sm text-center-xs text-right hidden-xs hidden-sm">
+
+            @if ($navigation['headerTabsMenu'] || (is_array(get_field('search_display', 'option')) && in_array('header', get_field('search_display', 'option'))) || (!is_front_page() && is_array(get_field('search_display', 'option')) && in_array('header_sub', get_field('search_display', 'option'))))
             <div>
-                {!!
-                    wp_nav_menu(array(
-                        'theme_location' => 'header-tabs-menu',
-                        'container' => 'nav',
-                        'container_class' => 'menu-header-tabs',
-                        'container_id' => '',
-                        'menu_class' => 'nav nav-tabs',
-                        'menu_id' => 'help-menu-top',
-                        'echo' => 'echo',
-                        'before' => '',
-                        'after' => '',
-                        'link_before' => '',
-                        'link_after' => '',
-                        'items_wrap' => '<ul class="%2$s">%3$s</ul>',
-                        'depth' => 1,
-                        'fallback_cb' => '__return_false'
-                    ));
-                !!}
+                {!! $navigation['headerTabsMenu'] !!}
 
                 @if ( (is_array(get_field('search_display', 'option')) && in_array('header', get_field('search_display', 'option'))) || (!is_front_page() && is_array(get_field('search_display', 'option')) && in_array('header_sub', get_field('search_display', 'option'))) )
                     @include('partials.search.top-search')
                 @endif
             </div>
+            @endif
 
-            {!!
-                wp_nav_menu(array(
-                    'theme_location' => 'help-menu',
-                    'container' => 'nav',
-                    'container_class' => 'menu-help',
-                    'container_id' => '',
-                    'menu_class' => 'nav nav-help nav-horizontal',
-                    'menu_id' => 'help-menu-top',
-                    'echo' => 'echo',
-                    'before' => '',
-                    'after' => '',
-                    'link_before' => '',
-                    'link_after' => '',
-                    'items_wrap' => '<ul class="%2$s">%3$s</ul>',
-                    'depth' => 1,
-                    'fallback_cb' => '__return_false'
-                ));
-            !!}
+            @if ($navigation['headerHelpMenu'])
+            {!! $navigation['headerHelpMenu'] !!}
+            @endif
         </div>
+        @endif
     </div>
 </div>
 
@@ -101,7 +75,7 @@
 @endif
 
 @if (get_field('nav_primary_enable', 'option') === true)
-    <nav class="navbar navbar-mainmenu hidden-xs hidden-sm hidden-print {{ get_field('header_sticky', 'option') ? 'sticky-scroll' : '' }}">
+    <nav class="navbar navbar-mainmenu hidden-xs hidden-sm hidden-print {{ get_field('header_sticky', 'option') ? 'sticky-scroll' : '' }} {{ is_front_page() && get_field('header_transparent', 'option') ? 'navbar-transparent' : '' }}">
         <div class="container">
             <div class="grid">
                 <div class="grid-sm-12">

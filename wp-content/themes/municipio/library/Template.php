@@ -36,7 +36,7 @@ class Template
             }
         }
 
-        add_action('load-post.php', array($this, 'adminFrontPageTemplates'));
+        add_action('init', array($this, 'adminFrontPageTemplates'));
         add_action('save_post', array($this, 'adminFrontPageTemplatesSave'));
     }
 
@@ -115,7 +115,7 @@ class Template
      */
     public function load($template)
     {
-        if (!empty(get_page_template_slug()) && get_page_template_slug() != $template) {
+        if ((is_page() || is_single() || is_front_page()) && !empty(get_page_template_slug()) && get_page_template_slug() != $template) {
             if (\Municipio\Helper\Template::locateTemplate(get_page_template_slug())) {
                 $template = get_page_template_slug();
             }
