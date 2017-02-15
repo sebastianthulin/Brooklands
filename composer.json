@@ -19,10 +19,6 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/helsingborg-stad/xcap-import.git"
-        },
-        {
-            "type": "vcs",
             "url": "https://github.com/helsingborg-stad/lix-calculator.git"
         },
         {

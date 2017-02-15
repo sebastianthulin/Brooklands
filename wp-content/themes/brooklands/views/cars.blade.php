@@ -104,17 +104,17 @@
             <div class="filter-options">
 
                 <div class="sort">
-                    <label for="brand" class="btn btn-subtle btn-medium"><?php _e("Brand", 'brooklands'); ?></label>
-                    <label for="model" class="btn btn-subtle btn-medium"><?php _e("Model", 'brooklands'); ?></label>
-                    <label for="distance" class="btn btn-subtle btn-medium"><?php _e("Milage", 'brooklands'); ?></label>
-                    <label for="price" class="btn btn-subtle btn-medium"><?php _e("Price", 'brooklands'); ?></label>
-                </div>
+                    <input type="radio" id="sbrand" name="sort" value="brand" class="sort-trigger hidden">
+                    <label for="sbrand" class="btn btn-subtle btn-medium"><?php _e("Brand", 'brooklands'); ?></label>
 
-                <div class="hidden">
-                    <input type="radio" id="brand" name="gender" value="male">
-                    <input type="radio" id="model" name="gender" value="female">
-                    <input type="radio" id="distance" name="gender" value="other">
-                    <input type="radio" id="price" name="gender" value="other">
+                    <input type="radio" id="smodel" name="sort" value="year" class="sort-trigger hidden">
+                    <label for="smodel" class="btn btn-subtle btn-medium"><?php _e("Yearmodel", 'brooklands'); ?></label>
+
+                    <input type="radio" id="sdistance" name="sort" value="milage" class="sort-trigger hidden">
+                    <label for="sdistance" class="btn btn-subtle btn-medium"><?php _e("Milage", 'brooklands'); ?></label>
+
+                    <input type="radio" id="sprice" name="sort" value="price" class="sort-trigger hidden">
+                    <label for="sprice" class="btn btn-subtle btn-medium"><?php _e("Price", 'brooklands'); ?></label>
                 </div>
 
             </div>
@@ -126,8 +126,11 @@
 
         <div class="grid-xs-4">
             <div class="padding">
-                <a href="#az" class="alpha-sorting"><?php _e("A-Z", 'brooklands'); ?></a>
-                <a href="#za" class="alpha-sorting"><?php _e("Z-A", 'brooklands'); ?></a>
+                <input type="radio" id="az" name="order" value="asc" class="order-trigger hidden" checked>
+                <label for="az" href="#az" class="alpha-sorting"><?php _e("A-Z", 'brooklands'); ?></label>
+
+                <input type="radio" id="za" name="order" value="desc" class="order-trigger hidden">
+                <label for="za" href="#za" class="alpha-sorting"><?php _e("Z-A", 'brooklands'); ?></label>
             </div>
         </div>
 
@@ -150,14 +153,15 @@
                 @foreach($cars['data'] as $car)
                     <li class="grid-xs-12 grid-sm-6 grid-md-3 grid-lg-3">
                         <a href="#modal-{{ $car['id'] }}">
-                            <img src="http://placeholder.pics/svg/300" class="responsive" />
+                            <img src="https://unsplash.it/300/300/?random&{{ $car['id'] }}" class="responsive" />
                             <span class="brand">{{ $car['brand'] }}</span>
                             <span class="details">{{ $car['modeldescription'] }}</span>
                             <span class="price">{{ preg_replace("/[^0-9]/", "", $car['price-sek']) }}</span>
 
                             <!-- Sort columns -->
-                            <span class="year hidden">{{ (int) $car['yearmodel'] }}</span>
-                            <span class="milage hidden">{{ (int) $car['miles'] }}</span>
+                            <span class="year">{{ (int) $car['yearmodel'] }}</span>
+                            <span class="milage">{{ (int) $car['miles'] }}</span>
+                            <span class="sprice hidden">{{ preg_replace("/[^0-9]/", "", $car['price-sek']) }}</span>
 
                         </a>
                     </li>
@@ -204,8 +208,8 @@
                                 <ul class="grid">
                                 @foreach ($car['images']['image'] as $index => $image)
                                     @if(!$index) @endif
-                                    <li class="grid-sm-4">
-                                    <div class="slider-image ratio-16-9" style="background-image:url('{{ $image }}');"></div>
+                                    <li class="grid-sm-12">
+                                    <div class="slider-image ratio-16-9" style="background-image:url('https://unsplash.it/1200/645/?random&{{ md5($image) }}');"></div>
                                     </li>
                                 @endforeach
                                 </ul>

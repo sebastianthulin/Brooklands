@@ -11,8 +11,6 @@ class Filters
         add_action('Municipio/mobile_menu_breakpoint', array($this, 'mobileMenuBreakpoint'));
         add_action('Municipio/desktop_menu_breakpoint', array($this, 'desktopMenuBreakpoint'));
         add_action('Municipio/header_grid_size', array($this, 'headerGridSize'));
-        add_filter('wp_nav_menu_items', array($this, 'addSocialIconsToMenu'), 10, 2);
-        add_filter('Municipio/main_menu/items', array($this, 'addSocialIconsToMenu'), 10, 2);
         add_filter('excerpt_more', array($this, 'exerptMore'));
 
         /*
@@ -70,26 +68,6 @@ class Filters
         return '…';
     }
 
-    public function addSocialIconsToMenu($items, $args = null)
-    {
-        if ($args && $args->theme_location != apply_filters('Municipio/main_menu_theme_location', 'main-menu')) {
-            return $items;
-        }
-
-        //Not in child (if inherited from main)
-        if ($args && (isset($args->child_menu) && $args->child_menu == true) && $args->theme_location == "main-menu") {
-            return $items;
-        }
-
-        $socialIcons = (array) get_field('fredriksdal_social_icons', 'option');
-        foreach ($socialIcons as $icon) {
-            $svg = \Municipio\Helper\Svg::extract(get_attached_file($icon['icon']['id']));
-            $items .= '<li class="menu-item-social"><a href="' . $icon['link'] . '"><span data-tooltip="' . $icon['tooltip'] .'">' . $svg . '</span></a></li>' . "\n";
-        }
-
-        return $items;
-    }
-
     /**
      * Remove material design with class
      * @return array
@@ -108,7 +86,6 @@ class Filters
         if (get_field('mod_standard_widget_type', $module->ID) == 'WP_Widget_Search') {
             return '<div>';
         }
-
         // Box panel in content area and content area bottom
         if (in_array($sidebarArgs['id'], array('content-area', 'content-area-bottom')) && !is_front_page()) {
             $before = '<div class="box box-panel box-panel-secondary">';

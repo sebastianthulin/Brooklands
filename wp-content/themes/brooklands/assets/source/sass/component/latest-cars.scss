@@ -132,3 +132,15 @@
         margin-left: $grid-gutter-sm;
     }
 }
+
+.alpha-sorting {
+    &:hover {
+        text-decoration: underline;
+        cursor: hand;
+        cursor: pointer;
+    }
+}
+
+input:checked + .alpha-sorting {
+    opacity: .7;
+}

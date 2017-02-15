@@ -29,6 +29,16 @@ Brooklands.Cars.Cars = (function ($) {
             }.bind(this));
 
         });
+
+        $(".sort-trigger, .order-trigger").change(carsList, function(){
+
+            var sorting     = $(".sort-trigger:checked").val();
+            var ordering    = $(".order-trigger:checked").val();
+
+            console.log("hello", sorting, ordering);
+
+            carsList.sort(sorting, { order: ordering });
+        });
     }
 
     return new Cars();
