@@ -45,16 +45,10 @@
 ?>
 
 @if (is_array($featuredImage))
-<div class="hero hero-featured-image">
-    <div class="slider ratio-10-3">
-        <ul>
-            <li>
-                <div class="slider-image hidden-xs hidden-md" style="background-image:url('{{ $featuredImage[0] }}');"></div>
-                <div class="slider-image hidden-xs hidden-lg" style="background-image:url('{{ $featuredImageMedium[0] }}');"></div>
-                <div class="slider-image hidden-sm hidden-md hidden-lg" style="background-image:url('{{ $featuredImageMobile[0] }}');"></div>
-            </li>
-        </ul>
-    </div>
+<div class="hero-featured-image">
+    <div class="slider-image hidden-xs hidden-md ratio-10-3" style="background-image:url('{{ $featuredImage[0] }}');"></div>
+    <div class="slider-image hidden-xs hidden-lg ratio-10-5" style="background-image:url('{{ $featuredImageMedium[0] }}');"></div>
+    <div class="slider-image hidden-sm hidden-md hidden-lg ratio-4-3" style="background-image:url('{{ $featuredImageMobile[0] }}');"></div>
 </div>
 @endif
 @endif

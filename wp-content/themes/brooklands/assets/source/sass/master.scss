@@ -10,3 +10,13 @@
 .modularity-edit-module {
     z-index: 99;
 }
+
+.ratio-10-5 {
+    position: relative;
+    &:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: 20%;
+    }
+}

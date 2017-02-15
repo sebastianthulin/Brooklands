@@ -11,6 +11,14 @@
 .modularity-edit-module {
   z-index: 99; }
 
+.ratio-10-5 {
+  position: relative; }
+  .ratio-10-5:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 20%; }
+
 /* Configurations */
 /* Mixins */
 /* Mixin */
@@ -423,6 +431,8 @@
       margin-top: 12px; } }
   .is-child-theme:not(.home) .hero .modularity-mod-slider .slider {
     max-height: 350px; }
+  .is-child-theme .hero-featured-image > div {
+    background-size: cover; }
   .is-child-theme .hero {
     padding-left: 0;
     position: relative;
