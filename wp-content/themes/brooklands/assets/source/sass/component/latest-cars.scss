@@ -3,15 +3,22 @@
 
     a {
         display: block;
+        margin-bottom: $grid-gutter-lg;
+        position: relative;
+
+        &:hover {
+            text-decoration: none;
+        }
     }
 
     img {
         width: 100%;
+        transition: 300ms opacity;
     }
 
     span.brand,
     span.description,
-    span.price {
+    span.f-price {
         display: block;
         text-transform: uppercase;
     }
@@ -24,18 +31,59 @@
         font-weight: bold;
     }
 
+    .show-car-btn {
+        position: absolute;
+        z-index: 99;
+        @include center();
+        color: #fff;
+        border-color: #fff;
+    }
+
+    .img-container {
+        position: relative;
+        line-height: 0;
+
+        img {
+            opacity: 1;
+            transition: 300ms opacity;
+        }
+
+        .show-car-btn {
+            opacity: 0;
+            transition: 300ms opacity;
+            white-space: nowrap;
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
+
+        &:after {
+            @include cover();
+            content: "";
+            background-color: rgba($brooklands-blue, .7);
+            opacity: 0;
+            transition: 300ms opacity;
+        }
+    }
+
+    .img-container:hover {
+
+        img {
+            opacity: .6;
+        }
+
+        &:after,
+        .show-car-btn {
+            opacity: 1;
+        }
+    }
+
 }
 
 .latest-car-container {
     padding-top: $grid-gutter-lg;
     padding-bottom: $grid-gutter-lg;
-}
-
-.car-container {
-    a {
-        display: inline-block;
-        margin-bottom: $grid-gutter-lg;
-    }
 }
 
 .cars-header {

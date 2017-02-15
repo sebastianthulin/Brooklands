@@ -79,7 +79,7 @@
 
         <div class="grid">
             <div class="grid-xs-12 text-center">
-                <h4 class="in-stock">Vi har <u>37</u> bilar i lager</h4>
+                <h4 class="in-stock"><?php _e("We have", 'brooklands'); ?> <u><?php echo count($cars['data']); ?></u> <?php _e("cars in stock", 'brooklands'); ?></h4>
             </div>
         </div>
 
@@ -107,7 +107,7 @@
                     <input type="radio" id="sbrand" name="sort" value="brand" class="sort-trigger hidden">
                     <label for="sbrand" class="btn btn-subtle btn-medium"><?php _e("Brand", 'brooklands'); ?></label>
 
-                    <input type="radio" id="smodel" name="sort" value="year" class="sort-trigger hidden">
+                    <input type="radio" id="smodel" name="sort" value="year" class="sort-trigger hidden" checked>
                     <label for="smodel" class="btn btn-subtle btn-medium"><?php _e("Yearmodel", 'brooklands'); ?></label>
 
                     <input type="radio" id="sdistance" name="sort" value="milage" class="sort-trigger hidden">
@@ -151,18 +151,20 @@
 
             @if($cars['state'] === true)
                 @foreach($cars['data'] as $car)
-                    <li class="grid-xs-12 grid-sm-6 grid-md-3 grid-lg-3">
+                    <li class="grid-xs-12 grid-sm-6 grid-md-4 grid-lg-3">
                         <a href="#modal-{{ $car['id'] }}">
-                            <img src="https://unsplash.it/300/300/?random&{{ $car['id'] }}" class="responsive" />
+                            <div class="img-container">
+                                <img src="https://unsplash.it/300/300/?random&{{ $car['id'] }}" class="responsive" />
+                                <span class="btn show-car-btn"><?php _e("Show car", 'brooklands') ;?></span>
+                            </div>
                             <span class="brand">{{ $car['brand'] }}</span>
                             <span class="details">{{ $car['modeldescription'] }}</span>
-                            <span class="price">{{ preg_replace("/[^0-9]/", "", $car['price-sek']) }}</span>
+                            <span class="f-price">{{ number_format_i18n(preg_replace("/[^0-9]/", "", $car['price-sek'])) }}:-</span>
 
                             <!-- Sort columns -->
-                            <span class="year">{{ (int) $car['yearmodel'] }}</span>
-                            <span class="milage">{{ (int) $car['miles'] }}</span>
-                            <span class="sprice hidden">{{ preg_replace("/[^0-9]/", "", $car['price-sek']) }}</span>
-
+                            <span class="year hidden">{{ (int) $car['yearmodel'] }}</span>
+                            <span class="milage hidden">{{ (int) $car['miles'] }}</span>
+                            <span class="price hidden">{{ preg_replace("/[^0-9]/", "", $car['price-sek']) }}</span>
                         </a>
                     </li>
                 @endforeach

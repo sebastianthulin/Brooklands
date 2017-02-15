@@ -144,12 +144,20 @@ Brooklands.Cars = Brooklands.Cars || {};
 Brooklands.Cars.Cars = (function ($) {
 
     function Cars() {
+
+        /* Init */
         var carsList = new List('cars-list', {
             valueNames: ['brand', 'details', 'price', 'model', 'milage', 'year'],
             page: 12,
             pagination: true
         });
 
+        /* Initial sorting */
+        var sorting     = $(".sort-trigger:checked").val();
+        var ordering    = $(".order-trigger:checked").val();
+        carsList.sort(sorting, { order: ordering });
+
+        /* Filtering */
         $(".filter-trigger").change(carsList, function() {
 
             var values_brand        = $("#brand").val();
@@ -170,14 +178,14 @@ Brooklands.Cars.Cars = (function ($) {
 
         });
 
+        /* Sorting */
         $(".sort-trigger, .order-trigger").change(carsList, function(){
 
             var sorting     = $(".sort-trigger:checked").val();
             var ordering    = $(".order-trigger:checked").val();
 
-            console.log("hello", sorting, ordering);
-
             carsList.sort(sorting, { order: ordering });
+
         });
     }
 

@@ -849,16 +849,23 @@
     margin-top: 0; }
   .is-child-theme .latest-car-container a,
   .is-child-theme .car-container a {
-    display: block; }
+    display: block;
+    margin-bottom: 45px;
+    position: relative; }
+    .is-child-theme .latest-car-container a:hover,
+    .is-child-theme .car-container a:hover {
+      text-decoration: none; }
   .is-child-theme .latest-car-container img,
   .is-child-theme .car-container img {
-    width: 100%; }
+    width: 100%;
+    -webkit-transition: 300ms opacity;
+            transition: 300ms opacity; }
   .is-child-theme .latest-car-container span.brand,
   .is-child-theme .latest-car-container span.description,
-  .is-child-theme .latest-car-container span.price,
+  .is-child-theme .latest-car-container span.f-price,
   .is-child-theme .car-container span.brand,
   .is-child-theme .car-container span.description,
-  .is-child-theme .car-container span.price {
+  .is-child-theme .car-container span.f-price {
     display: block;
     text-transform: uppercase; }
   .is-child-theme .latest-car-container span.brand,
@@ -867,12 +874,58 @@
   .is-child-theme .latest-car-container span.price,
   .is-child-theme .car-container span.price {
     font-weight: bold; }
+  .is-child-theme .latest-car-container .show-car-btn,
+  .is-child-theme .car-container .show-car-btn {
+    position: absolute;
+    z-index: 99;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    color: #fff;
+    border-color: #fff; }
+  .is-child-theme .latest-car-container .img-container,
+  .is-child-theme .car-container .img-container {
+    position: relative;
+    line-height: 0; }
+    .is-child-theme .latest-car-container .img-container img,
+    .is-child-theme .car-container .img-container img {
+      opacity: 1;
+      -webkit-transition: 300ms opacity;
+              transition: 300ms opacity; }
+    .is-child-theme .latest-car-container .img-container .show-car-btn,
+    .is-child-theme .car-container .img-container .show-car-btn {
+      opacity: 0;
+      -webkit-transition: 300ms opacity;
+              transition: 300ms opacity;
+      white-space: nowrap; }
+      .is-child-theme .latest-car-container .img-container .show-car-btn:hover,
+      .is-child-theme .car-container .img-container .show-car-btn:hover {
+        background-color: transparent; }
+    .is-child-theme .latest-car-container .img-container:after,
+    .is-child-theme .car-container .img-container:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: rgba(17, 24, 32, 0.7);
+      opacity: 0;
+      -webkit-transition: 300ms opacity;
+              transition: 300ms opacity; }
+  .is-child-theme .latest-car-container .img-container:hover img,
+  .is-child-theme .car-container .img-container:hover img {
+    opacity: .6; }
+  .is-child-theme .latest-car-container .img-container:hover:after,
+  .is-child-theme .latest-car-container .img-container:hover .show-car-btn,
+  .is-child-theme .car-container .img-container:hover:after,
+  .is-child-theme .car-container .img-container:hover .show-car-btn {
+    opacity: 1; }
   .is-child-theme .latest-car-container {
     padding-top: 45px;
     padding-bottom: 45px; }
-  .is-child-theme .car-container a {
-    display: inline-block;
-    margin-bottom: 45px; }
   .is-child-theme .cars-header {
     position: relative;
     background-size: cover; }
@@ -971,3 +1024,6 @@
     .is-child-theme .btn-md:hover {
       background: #111820;
       color: #fff; }
+  .is-child-theme input:checked + .btn {
+    background: #111820;
+    color: #fff; }

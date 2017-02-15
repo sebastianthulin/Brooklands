@@ -22,3 +22,8 @@
         color: $white;
     }
 }
+
+input:checked + .btn {
+    background: $brooklands-blue;
+    color: $white;
+}

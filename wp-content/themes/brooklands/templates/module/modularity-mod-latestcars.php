@@ -26,23 +26,16 @@
                 ?>
             </div>
 
-            <?php foreach ($cars as $car) {
-    ?>
+            <?php foreach ($cars as $car) { ?>
                 <div class="grid-xs-12 grid-md-3">
-                    <a href="/vara-bilar/#modal-<?php echo $car['id'];
-    ?>">
+                    <a href="/vara-bilar/#modal-<?php echo $car['id']; ?>">
                         <img src="http://placeholder.pics/svg/300" class="responsive" />
-                        <span class="brand"><?php echo $car['brand'];
-    ?></span>
-                        <span class="details"><?php echo $car['modeldescription'];
-    ?></span>
-                        <span class="price"><?php echo preg_replace("/[^0-9]/", "", $car['price-sek']) ;
-    ?>:-</span>
+                        <span class="brand"><?php echo $car['brand']; ?></span>
+                        <span class="details"><?php echo $car['modeldescription']; ?></span>
+                        <span class="price"><?php echo preg_replace("/[^0-9]/", "", $car['price-sek']); ?>:-</span>
                     </a>
                 </div>
-            <?php
-
-} ?>
+            <?php } ?>
 
             <div class="grid-xs-12 grid-md-3">
                 <div class="squarebox">
