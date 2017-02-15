@@ -849,7 +849,7 @@
     margin-top: 0; }
   .is-child-theme .latest-car-container a,
   .is-child-theme .car-container a {
-    padding: 15px; }
+    display: block; }
   .is-child-theme .latest-car-container img,
   .is-child-theme .car-container img {
     width: 100%; }
