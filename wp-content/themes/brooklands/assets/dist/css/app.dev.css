@@ -1024,6 +1024,8 @@
     cursor: pointer; }
   .is-child-theme input:checked + .alpha-sorting {
     opacity: .7; }
+  .is-child-theme .image-gallery .box {
+    padding: 0; }
   .is-child-theme .btn,
   .is-child-theme .btn-lg,
   .is-child-theme .btn-md {
