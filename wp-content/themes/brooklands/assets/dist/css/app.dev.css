@@ -429,10 +429,24 @@
   @media screen and (min-width: 469px) and (max-width: 960px) {
     .is-child-theme .site-header.header-jumbo .menu-trigger {
       margin-top: 12px; } }
+  .is-child-theme .hero-featured-image {
+    position: relative; }
+    .is-child-theme .hero-featured-image > div {
+      background-size: cover; }
+    .is-child-theme .hero-featured-image h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      color: #000;
+      font-size: calc(1em + 2vw);
+      text-align: center; }
+      .is-child-theme .hero-featured-image h1 span {
+        display: block;
+        font-size: .7em; }
   .is-child-theme:not(.home) .hero .modularity-mod-slider .slider {
     max-height: 350px; }
-  .is-child-theme .hero-featured-image > div {
-    background-size: cover; }
   .is-child-theme .hero {
     padding-left: 0;
     position: relative;

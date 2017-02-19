@@ -180,16 +180,16 @@ Brooklands.Cars.Cars = (function ($) {
 
         /* Sorting */
         $(".sort-trigger, .order-trigger").change(carsList, function(){
-
             var sorting     = $(".sort-trigger:checked").val();
             var ordering    = $(".order-trigger:checked").val();
-
             carsList.sort(sorting, { order: ordering });
-
         });
     }
 
-    return new Cars();
+    if(jQuery(".page-template-cars-blade").length) {
+        return new Cars();
+    }
+
 
 })(jQuery);
 

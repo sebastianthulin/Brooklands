@@ -1,14 +1,32 @@
 
+.hero-featured-image {
+
+    position: relative;
+
+    > div {
+        background-size: cover;
+    }
+
+    h1 {
+        @include center();
+        color: $black;
+        font-size: calc(1em + 2vw);
+        text-align: center;
+
+        span {
+            display: block;
+            font-size: .7em;
+        }
+    }
+
+}
+
 &:not(.home) .hero {
     .modularity-mod-slider {
         .slider {
             max-height: 350px;
         }
     }
-}
-
-.hero-featured-image > div {
-    background-size: cover;
 }
 
 .hero {
