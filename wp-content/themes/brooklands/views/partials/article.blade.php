@@ -1,8 +1,6 @@
 <?php global $post; ?>
 <article class="clearfix">
 
-    @include('partials.accessibility-menu')
-
     @if (isset(get_extended($post->post_content)['main']) && strlen(get_extended($post->post_content)['main']) > 0 && isset(get_extended($post->post_content)['extended']) && strlen(get_extended($post->post_content)['extended']) > 0)
 
         {!! apply_filters('the_lead', get_extended($post->post_content)['main']) !!}
