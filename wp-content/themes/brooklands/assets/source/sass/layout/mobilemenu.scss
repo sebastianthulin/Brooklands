@@ -7,30 +7,52 @@ nav#mobile-menu {
         display: none;
     }
 
-    ul {
+    ul.nav-mobile {
         background-color: transparent;
         animation: fadein 500ms;
-        //animation-delay: 500ms;
+        margin-top: -7px;
 
         li {
             & + li {
-                border-top: 1px solid rgba($black,.1);
+                border-top: none;
             }
 
-            a {
+            a,
+            a:hover,
+            a:active,
+            a:visited {
                 @include textrendering();
-                font-family: $base-font-family;
+                font-family: $headline-font-family;
                 font-size: 1.2em;
                 font-weight: 300;
                 transition: background 200ms;
                 color: $black;
+                text-transform: uppercase;
+                padding: 7px 0;
+            }
+
+            &:hover,
+            &:active {
+                background: none;
+                color: $black !important;
+                > a,
+                > a:hover,
+                > a:active,
+                > a:visited {
+                    background: none;
+                    color: $brooklands-lgray !important;
+                }
             }
 
             &.active,
             &.current-menu-item {
-                background: rgba($white,.05);
-                a {
-                    background: transparent;
+                background: none;
+                color: $brooklands-lgray !important;
+                > a,
+                > a:hover,
+                > a:active,
+                > a:visited {
+                    color: $brooklands-lgray !important;
                 }
             }
         }
