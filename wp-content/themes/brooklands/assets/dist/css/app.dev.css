@@ -1079,3 +1079,14 @@
   .is-child-theme input:checked + .btn {
     background: #111820;
     color: #fff; }
+  .is-child-theme .box.box-panel .box-title,
+  .is-child-theme .box.box-panel .box-content {
+    background: #111820;
+    color: #fff;
+    border: none; }
+  .is-child-theme .box.box-panel .box-title {
+    padding: 15px 15px 0 15px; }
+  .is-child-theme .box.box-panel .box-content {
+    padding: 15px; }
+    .is-child-theme .box.box-panel .box-content p, .is-child-theme .box.box-panel .box-content ul, .is-child-theme .box.box-panel .box-content ol, .is-child-theme .box.box-panel .box-content li, .is-child-theme .box.box-panel .box-content a, .is-child-theme .box.box-panel .box-content span {
+      color: #fff; }
