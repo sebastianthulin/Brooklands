@@ -7,15 +7,12 @@ nav#mobile-menu {
         display: none;
     }
 
-    ul.nav-mobile {
+    ul.navigation {
         background-color: transparent;
         animation: fadein 500ms;
         margin-top: -7px;
 
         li {
-            & + li {
-                border-top: none;
-            }
 
             a,
             a:hover,
@@ -56,6 +53,11 @@ nav#mobile-menu {
                 }
             }
         }
+    }
+
+    ul.sub-menu {
+        font-size: .9em;
+        padding: 3px 3px 3px 1em;
     }
 }
 

@@ -28,7 +28,7 @@
             $featuredImageMedium = wp_get_attachment_image_src(
                 get_post_thumbnail_id(),
                 apply_filters('brooklands/page_hero_mobile',
-                    municipio_to_aspect_ratio('10:5', array(1000, 600))
+                    municipio_to_aspect_ratio('10:5', array(1000, 500))
                 )
             );
         }
@@ -46,7 +46,7 @@
 
     @if (is_array($featuredImage))
         <div class="hero-featured-image">
-            <div class="slider-image hidden-xs hidden-md ratio-10-3" style="background-image:url('{{ $featuredImage[0] }}');"></div>
+            <div class="slider-image hidden-xs hidden-sm hidden-md ratio-10-3" style="background-image:url('{{ $featuredImage[0] }}');"></div>
             <div class="slider-image hidden-xs hidden-lg ratio-10-5" style="background-image:url('{{ $featuredImageMedium[0] }}');"></div>
             <div class="slider-image hidden-sm hidden-md hidden-lg ratio-4-3" style="background-image:url('{{ $featuredImageMobile[0] }}');"></div>
             <h1 class="center">

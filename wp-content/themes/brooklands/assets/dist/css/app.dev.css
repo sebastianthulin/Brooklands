@@ -17,7 +17,7 @@
     display: block;
     content: "";
     width: 100%;
-    padding-top: 20%; }
+    padding-top: 50%; }
 
 /* Configurations */
 /* Mixins */
@@ -391,17 +391,15 @@
     padding: 30px 0 45px 0; }
     .is-child-theme nav#mobile-menu form {
       display: none; }
-    .is-child-theme nav#mobile-menu ul.nav-mobile {
+    .is-child-theme nav#mobile-menu ul.navigation {
       background-color: transparent;
       -webkit-animation: fadein 500ms;
               animation: fadein 500ms;
       margin-top: -7px; }
-      .is-child-theme nav#mobile-menu ul.nav-mobile li + li {
-        border-top: none; }
-      .is-child-theme nav#mobile-menu ul.nav-mobile li a,
-      .is-child-theme nav#mobile-menu ul.nav-mobile li a:hover,
-      .is-child-theme nav#mobile-menu ul.nav-mobile li a:active,
-      .is-child-theme nav#mobile-menu ul.nav-mobile li a:visited {
+      .is-child-theme nav#mobile-menu ul.navigation li a,
+      .is-child-theme nav#mobile-menu ul.navigation li a:hover,
+      .is-child-theme nav#mobile-menu ul.navigation li a:active,
+      .is-child-theme nav#mobile-menu ul.navigation li a:visited {
         text-rendering: geometricPrecision;
         -webkit-font-feature-settings: "kern" 1;
            -moz-font-feature-settings: "kern" 1;
@@ -417,29 +415,32 @@
         color: #000;
         text-transform: uppercase;
         padding: 7px 0; }
-      .is-child-theme nav#mobile-menu ul.nav-mobile li:hover, .is-child-theme nav#mobile-menu ul.nav-mobile li:active {
+      .is-child-theme nav#mobile-menu ul.navigation li:hover, .is-child-theme nav#mobile-menu ul.navigation li:active {
         background: none;
         color: #000 !important; }
-        .is-child-theme nav#mobile-menu ul.nav-mobile li:hover > a,
-        .is-child-theme nav#mobile-menu ul.nav-mobile li:hover > a:hover,
-        .is-child-theme nav#mobile-menu ul.nav-mobile li:hover > a:active,
-        .is-child-theme nav#mobile-menu ul.nav-mobile li:hover > a:visited, .is-child-theme nav#mobile-menu ul.nav-mobile li:active > a,
-        .is-child-theme nav#mobile-menu ul.nav-mobile li:active > a:hover,
-        .is-child-theme nav#mobile-menu ul.nav-mobile li:active > a:active,
-        .is-child-theme nav#mobile-menu ul.nav-mobile li:active > a:visited {
+        .is-child-theme nav#mobile-menu ul.navigation li:hover > a,
+        .is-child-theme nav#mobile-menu ul.navigation li:hover > a:hover,
+        .is-child-theme nav#mobile-menu ul.navigation li:hover > a:active,
+        .is-child-theme nav#mobile-menu ul.navigation li:hover > a:visited, .is-child-theme nav#mobile-menu ul.navigation li:active > a,
+        .is-child-theme nav#mobile-menu ul.navigation li:active > a:hover,
+        .is-child-theme nav#mobile-menu ul.navigation li:active > a:active,
+        .is-child-theme nav#mobile-menu ul.navigation li:active > a:visited {
           background: none;
           color: #73757E !important; }
-      .is-child-theme nav#mobile-menu ul.nav-mobile li.active, .is-child-theme nav#mobile-menu ul.nav-mobile li.current-menu-item {
+      .is-child-theme nav#mobile-menu ul.navigation li.active, .is-child-theme nav#mobile-menu ul.navigation li.current-menu-item {
         background: none;
         color: #73757E !important; }
-        .is-child-theme nav#mobile-menu ul.nav-mobile li.active > a,
-        .is-child-theme nav#mobile-menu ul.nav-mobile li.active > a:hover,
-        .is-child-theme nav#mobile-menu ul.nav-mobile li.active > a:active,
-        .is-child-theme nav#mobile-menu ul.nav-mobile li.active > a:visited, .is-child-theme nav#mobile-menu ul.nav-mobile li.current-menu-item > a,
-        .is-child-theme nav#mobile-menu ul.nav-mobile li.current-menu-item > a:hover,
-        .is-child-theme nav#mobile-menu ul.nav-mobile li.current-menu-item > a:active,
-        .is-child-theme nav#mobile-menu ul.nav-mobile li.current-menu-item > a:visited {
+        .is-child-theme nav#mobile-menu ul.navigation li.active > a,
+        .is-child-theme nav#mobile-menu ul.navigation li.active > a:hover,
+        .is-child-theme nav#mobile-menu ul.navigation li.active > a:active,
+        .is-child-theme nav#mobile-menu ul.navigation li.active > a:visited, .is-child-theme nav#mobile-menu ul.navigation li.current-menu-item > a,
+        .is-child-theme nav#mobile-menu ul.navigation li.current-menu-item > a:hover,
+        .is-child-theme nav#mobile-menu ul.navigation li.current-menu-item > a:active,
+        .is-child-theme nav#mobile-menu ul.navigation li.current-menu-item > a:visited {
           color: #73757E !important; }
+    .is-child-theme nav#mobile-menu ul.sub-menu {
+      font-size: .9em;
+      padding: 3px 3px 3px 1em; }
   .is-child-theme .menu-trigger {
     text-transform: uppercase;
     margin-top: 70px; }

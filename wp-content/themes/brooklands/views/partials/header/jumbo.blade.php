@@ -19,7 +19,24 @@
         <div class="container">
             <div class="grid">
                 <div class="grid-xs-12 grid-md-8">
-                    @include('partials.mobile-menu')
+                    {!!
+                        wp_nav_menu(array(
+                            'theme_location' => 'main-menu',
+                            'container' => 'nav',
+                            'container_class' => 'hidden-print',
+                            'container_id' => '',
+                            'menu_class' => 'navigation',
+                            'menu_id' => 'main-menu',
+                            'echo' => 'echo',
+                            'before' => '',
+                            'after' => '',
+                            'link_before' => '',
+                            'link_after' => '',
+                            'items_wrap' => '<ul class="%2$s">%3$s</ul>',
+                            'depth' => 2,
+                            'fallback_cb' => '__return_false'
+                        ));
+                    !!}
                 </div>
                 <div class="grid-xs-12 grid-md-4">
 
